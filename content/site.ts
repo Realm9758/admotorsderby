@@ -75,7 +75,7 @@ export const hero = {
   /* the promise, in the world's own words: a blocked line clears when he answers */
   headline: "The line is never closed.",
   standfirst:
-    "A mobile mechanic who answers at any hour, with a real Derby workshop behind him. He comes to the car, wherever it has stopped.",
+    "A mobile mechanic in Derby, listed open 24 hours, with a real workshop behind him. He comes to the car, wherever it has stopped.",
   callLabel: "Call",
   callSub: "Any hour, any day",
   servicesLabel: "What he covers",
@@ -89,6 +89,10 @@ export const frame = {
     "Five things a callout covers. Ring the number and say which one you think it is, or say you have no idea, which is most people.",
   /* [client] generic, client-authorised, not a published or scraped list */
   note: "A general list, confirmed by the business. Ring to ask about anything not on it.",
+  /* The paint code is the real one used in British signal box frames, which is
+     why five colours appear on a page whose fields are otherwise maroon and
+     brass. It is the frame's own grammar, not a claim about the business. */
+  caption: "Painted to the frame code: red stops, yellow warns, black moves the road, blue locks it, green releases.",
 } as const;
 
 export const services = [
@@ -151,9 +155,9 @@ export const clock = {
   heading: "Open 24 hours",
   /* [google] verbatim claim; the ring below lights all 24 hours because of it */
   standfirst:
-    "Not an out of hours number that rings out. The profile says open 24 hours, and that is the whole point of the business.",
+    "The profile carries no closing time and no out of hours arrangement. It says open 24 hours, every day, and that is the whole point of the business.",
   nowLabel: "Derby, now",
-  lit: "Answered",
+  lit: "Open",
 } as const;
 
 export const where = {
@@ -165,7 +169,9 @@ export const where = {
 
 export const close = {
   heading: "Pull the lever.",
-  standfirst: "One number, answered at any hour.",
+  /* the description engraved on the plate, in the frame's own register */
+  plateDesc: "Mobile mechanic · Derby",
+  foot: "Open 24 hours · 41-45 Cameron Rd, Derby DE23 8RT",
 } as const;
 
 /* The three readings along the foot of the hero, in the block shelf. Every

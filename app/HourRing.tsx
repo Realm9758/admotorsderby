@@ -13,7 +13,7 @@ const HOURS = Array.from({ length: 24 }, (_, i) => i);
 const CENTRE = 160;
 const R_INNER = 118;
 const R_OUTER = 140;
-const R_LABEL = 155;
+const R_LABEL = 101;
 
 function point(hour: number, radius: number) {
   const angle = ((hour * 15 - 90) * Math.PI) / 180;
@@ -75,7 +75,7 @@ export default function HourRing({ nowLabel, lit }: { nowLabel: string; lit: str
               x={p.x}
               y={p.y}
               fill="rgba(244,241,234,0.55)"
-              fontSize="13"
+              fontSize="12"
               fontFamily="var(--font-plate)"
               letterSpacing="1"
               textAnchor="middle"

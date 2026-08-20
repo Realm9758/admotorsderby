@@ -65,7 +65,7 @@ export const workshop = {
 } as const;
 
 export const hero = {
-  nameLines: ["AD Motors", "Mobile Services"] as const,
+  nameLines: ["AD Motors", "Mobile Services", "24/7"] as const,
   /* [google] the trading name carries 24/7, so the sub-line is the fact */
   subLine: "Mobile mechanic in Derby",
   tagline:

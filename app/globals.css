@@ -401,13 +401,19 @@ section[id] {
   min-width: 0;
 }
 
+/* The trading name in its own three lines. Each is set nowrap so the lockup
+   never breaks itself in a place the name does not. */
 .heroName {
   display: flex;
   flex-direction: column;
-  font-size: clamp(2.1rem, 8vw, 5.8rem);
+  font-size: clamp(1.95rem, 6.6vw, 4.9rem);
   font-stretch: 128%;
   letter-spacing: -0.012em;
-  line-height: 0.98;
+  line-height: 0.96;
+}
+
+.heroName span {
+  white-space: nowrap;
 }
 
 .heroSub {
@@ -422,7 +428,7 @@ section[id] {
 
 .heroTagline {
   max-width: 46ch;
-  margin-top: 1.15rem;
+  margin-top: 1rem;
   color: var(--steel-mid);
   font-size: clamp(1.05rem, 2vw, 1.28rem);
   line-height: 1.5;
@@ -433,7 +439,7 @@ section[id] {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
-  margin-top: 2.25rem;
+  margin-top: 2rem;
 }
 
 /*

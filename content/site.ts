@@ -67,7 +67,7 @@ export const workshop = {
 export const hero = {
   nameLines: ["AD Motors", "Mobile Services"] as const,
   /* [google] the trading name carries 24/7, so the sub-line is the fact */
-  subLine: "Mobile mechanic in Derby, open\u00a024\u00a0hours",
+  subLine: "Mobile mechanic in Derby",
   tagline:
     "He comes to the car, wherever it has stopped. Driveway, work car park, supermarket bay or kerb, with a real Derby workshop behind him when a job needs a ramp.",
   callCta: "Call 07751 914650",

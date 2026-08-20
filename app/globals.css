@@ -773,7 +773,7 @@ a.locationStrong:hover {
   .heroLight {
     inset: -4% -10% -2%;
     background-image: url("/worklamp-portrait.svg");
-    background-position: center 46%;
+    background-position: center;
   }
 
   .credBandInner {

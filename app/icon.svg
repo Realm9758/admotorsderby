@@ -1,9 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- The letter is drawn as a path, not set as live text: an SVG favicon gets
+  <!-- The letters are drawn as paths, not set as live text: an SVG favicon gets
        no webfont, so <text> would ship in whatever sans the platform has. -->
   <rect width="64" height="64" rx="10" fill="#100e0c"/>
   <rect x="4" y="4" width="56" height="56" rx="7" fill="none" stroke="#c1703a" stroke-width="2"/>
   <path fill-rule="evenodd" fill="#c1703a"
-        d="M16 46 L28.6 18 H35.4 L48 46 H41.2 L38.9 39.4 H25.1 L22.8 46 Z
-           M27.6 33.6 L32 23.5 L36.4 33.6 Z"/>
+        d="M11 45 L18.4 19 H23.6 L31 45 H25.9 L24.6 40.2 H17.4 L16.1 45 Z
+           M18.7 35.4 H23.3 L21 27 Z
+           M34 19 H43.5 A 13 13 0 0 1 43.5 45 H34 Z
+           M39.1 24.2 V39.8 H43.1 A 7.8 7.8 0 0 0 43.1 24.2 Z"/>
 </svg>

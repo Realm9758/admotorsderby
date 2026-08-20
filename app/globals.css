@@ -918,6 +918,17 @@ svg {
   margin-top: clamp(2.25rem, 5vw, 3.25rem);
   overflow-x: auto;
   overscroll-behavior-x: contain;
+  /* Below the width where all five stocks fit, the frame runs off the edge.
+     The fade is the affordance that says so. */
+  -webkit-mask-image: linear-gradient(90deg, #000 0 86%, rgba(0, 0, 0, 0.15) 100%);
+  mask-image: linear-gradient(90deg, #000 0 86%, rgba(0, 0, 0, 0.15) 100%);
+}
+
+@media (min-width: 700px) {
+  .frameObject {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 }
 
 .frameObject svg {

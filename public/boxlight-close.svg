@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" preserveAspectRatio="xMidYMid slice" role="presentation" aria-hidden="true">
+  <defs>
+    <radialGradient id="pool" cx="0.5" cy="0.82" r="0.66" gradientTransform="translate(0 0.566) scale(1 0.31)">
+      <stop offset="0" stop-color="#ffd8a2" stop-opacity="0.30"/>
+      <stop offset="0.28" stop-color="#f6bb7c" stop-opacity="0.17"/>
+      <stop offset="0.55" stop-color="#c07d45" stop-opacity="0.075"/>
+      <stop offset="0.78" stop-color="#6d4527" stop-opacity="0.028"/>
+      <stop offset="1" stop-color="#2b1a10" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="contact" x1="0" y1="0.5" x2="0" y2="1">
+      <stop offset="0" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#000000" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.58"/>
+    </linearGradient>
+    <radialGradient id="head" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffeccb" stop-opacity="0.5"/>
+      <stop offset="0.42" stop-color="#ffcf8e" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#c98a45" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="760" fill="#0e1014"/>
+  <rect width="1600" height="760" fill="url(#pool)"/>
+  <ellipse cx="800" cy="470" rx="230" ry="140" fill="url(#head)"/>
+  <rect width="1600" height="760" fill="url(#contact)"/>
+</svg>

@@ -1,0 +1,1266 @@
+/*
+  AD Motors Mobile Services 24/7, Derby.
+
+  World: the signal box, from the town the Midland Railway built. Derby made
+  the railway that ran to the minute through the night, and signalling is the
+  one trade whose entire point is that somebody is awake at three in the
+  morning. That is this business, so the page is built out of that frame:
+  a vitreous enamel running-in board, a painted lever you pull, a semaphore
+  arm that comes off danger, brass plates, and the twenty-four hour clock.
+
+  Materials, and where each is allowed:
+
+    ENAMEL     Midland maroon fields carrying white letters. Whole regions,
+               never an accent. The board, the target disc, the close.
+    IRON       The night ground. Soot black with a warm cast from one window.
+    BRASS      Plate edges, lever numbers, rules. Never a text colour on
+               maroon, where it falls under contrast.
+    LAMP       Two glasses only: signal red for the state the visitor is in,
+               lamp green for what happens when they ring. Rationed to the
+               signal, the block indications and the hour ring.
+
+  No photograph exists of this business and none may be invented, so the night
+  is lit rather than shot: public/boxlight*.svg build a signal box window
+  spilling onto ballast out of five named parts, pool, contact, head, throw and
+  a weak second source. Three assets, because a landscape pool cover-cropped
+  into a phone frame falls off the edge.
+*/
+
+:root {
+  /* Iron: the night ground. Cold, with a trace of blue so the window reads warm. */
+  --iron: #0e1014;
+  --iron-panel: #14171d;
+  --iron-raised: #1a1e25;
+  --iron-deep: #090a0d;
+
+  /* Enamel: Midland maroon, the field colour. */
+  --maroon: #7d1f28;
+  --maroon-deep: #5e161d;
+  --maroon-light: #97303a;
+  --maroon-edge: #b0464f;
+
+  /* Enamel white and its ramp. Warm, because vitreous white always is. */
+  --enamel: #f4f1ea;
+  --enamel-mid: #cdc7bb;
+  --enamel-dim: #a49d90;
+
+  /* Brass. */
+  --brass: #b98a3c;
+  --brass-light: #dcb268;
+  --brass-deep: #77571f;
+
+  /* Lamp glass. */
+  --lamp-red: #d8382c;
+  --lamp-red-bright: #ff6151;
+  --lamp-green: #29a765;
+  --lamp-green-bright: #4fdb92;
+
+  /* Rules. */
+  --hairline: rgba(244, 241, 234, 0.13);
+  --hairline-strong: rgba(244, 241, 234, 0.24);
+  --brass-rule: rgba(185, 138, 60, 0.42);
+
+  /* Shape. Cast and rolled iron has a small radius, never a soft one. */
+  --r-plate: 3px;
+  --r-board: 5px;
+  --r-lever: 4px;
+
+  /* Rhythm. */
+  --gutter: clamp(1.25rem, 4vw, 2.75rem);
+  --container: 1200px;
+  --measure: 66ch;
+  --section-pad: clamp(4.5rem, 10vh, 8rem);
+
+  /* Motion. */
+  --ease-state: 160ms cubic-bezier(0.32, 0.72, 0.35, 1);
+  --ease-pull: 780ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  --font-sign: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --font-plate: var(--font-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--iron);
+  color: var(--enamel);
+  font-family: var(--font-sign);
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.075rem);
+  line-height: 1.62;
+  font-variation-settings: "wdth" 100;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* The surfaces the browser draws, themed off the same palette. */
+::selection {
+  background: var(--maroon);
+  color: var(--enamel);
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-track {
+  background: var(--iron-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: #2b3038;
+  border: 2px solid var(--iron-deep);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brass-deep);
+}
+
+html {
+  scrollbar-color: #2b3038 var(--iron-deep);
+  scrollbar-width: thin;
+  caret-color: var(--brass-light);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brass-light);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--brass-rule);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  min-width: 0;
+}
+
+p {
+  margin: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Grain. Vitreous enamel and soot both have tooth; without it the light bands. */
+.grain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.26;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+}
+
+/* ----------------------------------------------------------------------
+   The block shelf: the strip of instruments above a signalman's frame.
+   Here it is the page's own header, and it holds the number all the way
+   down the page.
+   ---------------------------------------------------------------------- */
+
+.shelf {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(14, 16, 20, 0.86);
+  backdrop-filter: blur(12px) saturate(120%);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.shelfInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 58px;
+}
+
+.shelfMark {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 0.86rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-variation-settings: "wdth" 112;
+}
+
+.shelfMarkSub {
+  color: var(--enamel-dim);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+}
+
+.shelfCall {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--brass-rule);
+  border-radius: var(--r-plate);
+  background: linear-gradient(180deg, rgba(185, 138, 60, 0.14), rgba(185, 138, 60, 0.05));
+  color: var(--enamel);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.86rem;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  transition: background var(--ease-state), border-color var(--ease-state);
+}
+
+.shelfCall:hover {
+  background: linear-gradient(180deg, rgba(185, 138, 60, 0.26), rgba(185, 138, 60, 0.1));
+  border-color: var(--brass);
+}
+
+.shelfCallHint {
+  display: none;
+  color: var(--enamel-dim);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 720px) {
+  .shelfCallHint {
+    display: inline;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   Hero
+   ---------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  padding-block: clamp(2.75rem, 7vh, 5rem) clamp(3rem, 8vh, 5.5rem);
+  overflow: hidden;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.heroLight {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url("/boxlight-portrait.svg");
+  background-size: cover;
+  background-position: center bottom;
+}
+
+@media (min-width: 760px) {
+  .heroLight {
+    background-image: url("/boxlight.svg");
+  }
+}
+
+.heroGrid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: end;
+}
+
+@media (min-width: 940px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1fr) 168px;
+  }
+}
+
+.heroCol {
+  min-width: 0;
+}
+
+/* The running-in board. Vitreous enamel: a maroon ground, a white keyline set
+   in from the edge, bolted through at both ends. */
+.board {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: clamp(1.1rem, 3.4vw, 2rem) clamp(1.4rem, 4.4vw, 3rem);
+  border-radius: var(--r-board);
+  background:
+    linear-gradient(178deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0) 38%),
+    linear-gradient(180deg, var(--maroon-light) 0%, var(--maroon) 42%, var(--maroon-deep) 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.16) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.4) inset,
+    0 26px 60px -32px rgba(0, 0, 0, 0.95),
+    0 3px 10px -4px rgba(0, 0, 0, 0.6);
+}
+
+.board::before {
+  content: "";
+  position: absolute;
+  inset: clamp(6px, 1.2vw, 11px);
+  border: 2px solid rgba(244, 241, 234, 0.9);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.boardBolt {
+  position: absolute;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  translate: 0 -50%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #e6cd97, #8a6524 60%, #3d2c0f 100%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+
+.boardBoltLeft {
+  left: clamp(9px, 1.6vw, 15px);
+}
+.boardBoltRight {
+  right: clamp(9px, 1.6vw, 15px);
+}
+
+.boardText {
+  position: relative;
+  text-align: center;
+}
+
+.boardTop {
+  display: block;
+  margin: 0;
+  font-size: clamp(2.4rem, 9.4vw, 5.6rem);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: clamp(0.02em, 0.5vw, 0.07em);
+  text-transform: uppercase;
+  font-variation-settings: "wdth" 108;
+  color: var(--enamel);
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.35);
+}
+
+.boardBottom {
+  display: block;
+  margin-top: clamp(0.25rem, 1vw, 0.5rem);
+  font-size: clamp(0.82rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: clamp(0.18em, 0.7vw, 0.34em);
+  text-transform: uppercase;
+  font-variation-settings: "wdth" 112;
+  color: rgba(244, 241, 234, 0.92);
+}
+
+/* The target disc: the round enamel sign that hangs at the end of a board. */
+.targetWrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: clamp(-1.4rem, -3vw, -2rem);
+  margin-right: clamp(0.75rem, 4vw, 3.5rem);
+  position: relative;
+  z-index: 2;
+}
+
+.target {
+  display: grid;
+  place-items: center;
+  width: clamp(74px, 15vw, 104px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 26%, var(--maroon-light), var(--maroon) 48%, var(--maroon-deep) 100%);
+  box-shadow:
+    0 0 0 3px var(--enamel) inset,
+    0 0 0 5px var(--maroon) inset,
+    0 14px 26px -14px rgba(0, 0, 0, 0.9);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 3vw, 1.6rem);
+  letter-spacing: 0.01em;
+  font-variation-settings: "wdth" 105;
+  color: var(--enamel);
+}
+
+.heroHead {
+  margin-top: clamp(2.25rem, 5vw, 3.25rem);
+  font-size: clamp(2rem, 5.6vw, 3.6rem);
+  letter-spacing: -0.025em;
+  font-variation-settings: "wdth" 96;
+  max-width: 16ch;
+}
+
+.heroBody {
+  margin-top: 1.1rem;
+  max-width: 46ch;
+  color: var(--enamel-mid);
+  font-size: clamp(1.02rem, 0.98rem + 0.3vw, 1.19rem);
+  line-height: 1.58;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.1rem;
+  margin-top: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+/* ----------------------------------------------------------------------
+   The lever. The primary action is the object a signalman actually pulls:
+   a painted iron catch handle bolted to a brass description plate.
+   ---------------------------------------------------------------------- */
+
+.lever {
+  position: relative;
+  display: inline-flex;
+  align-items: stretch;
+  min-height: 64px;
+  border-radius: var(--r-lever);
+  text-decoration: none;
+  color: var(--enamel);
+  background: linear-gradient(180deg, #23272f, #171a20);
+  border: 1px solid rgba(244, 241, 234, 0.14);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.09) inset,
+    0 16px 34px -18px rgba(216, 56, 44, 0.55),
+    0 6px 14px -8px rgba(0, 0, 0, 0.8);
+  transition: transform var(--ease-state), box-shadow var(--ease-state), border-color var(--ease-state);
+  overflow: hidden;
+}
+
+.leverHandle {
+  position: relative;
+  flex: 0 0 auto;
+  width: 34px;
+  border-right: 1px solid rgba(0, 0, 0, 0.55);
+  background: linear-gradient(96deg, var(--lamp-red) 0%, #b62a20 52%, #8d1e16 100%);
+  box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1) inset;
+}
+
+.leverHandle::after {
+  content: "";
+  position: absolute;
+  inset: 6px auto 6px 8px;
+  width: 6px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.06) 55%, rgba(255, 255, 255, 0.22));
+}
+
+.leverPlate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.1rem;
+  padding: 0.55rem 1.25rem 0.6rem;
+}
+
+.leverLabel {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brass-light);
+}
+
+.leverNumber {
+  font-size: clamp(1.22rem, 3.2vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  font-variant-numeric: tabular-nums;
+  font-variation-settings: "wdth" 104;
+  white-space: nowrap;
+}
+
+.lever:hover {
+  transform: translateY(-1px);
+  border-color: rgba(244, 241, 234, 0.26);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.12) inset,
+    0 20px 40px -18px rgba(216, 56, 44, 0.72),
+    0 8px 16px -8px rgba(0, 0, 0, 0.85);
+}
+
+.lever:active {
+  transform: translateY(1px);
+}
+
+.leverGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 1.05rem;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--r-plate);
+  color: var(--enamel-mid);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: color var(--ease-state), border-color var(--ease-state), background var(--ease-state);
+}
+
+.leverGhost:hover {
+  color: var(--enamel);
+  border-color: var(--brass-rule);
+  background: rgba(185, 138, 60, 0.08);
+}
+
+/* ----------------------------------------------------------------------
+   The signal itself. Lower quadrant, Midland pattern: it sits at danger,
+   then pulls off. That single gesture is the page's authored motion.
+   ---------------------------------------------------------------------- */
+
+.signalCol {
+  display: none;
+}
+
+@media (min-width: 940px) {
+  .signalCol {
+    display: block;
+    min-width: 0;
+  }
+  .signal {
+    width: 168px;
+    height: 340px;
+  }
+}
+
+.signalArm {
+  transform-box: fill-box;
+  transform-origin: 100% 50%;
+  animation: pullOff var(--ease-pull) 1.1s both;
+}
+
+@keyframes pullOff {
+  0% {
+    rotate: 0deg;
+  }
+  62% {
+    rotate: 47deg;
+  }
+  78% {
+    rotate: 42deg;
+  }
+  100% {
+    rotate: 45deg;
+  }
+}
+
+.signalGlassRed {
+  animation: glassOut 420ms 1.5s both;
+}
+
+.signalGlassGreen {
+  animation: glassIn 420ms 1.5s both;
+}
+
+@keyframes glassOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.12;
+  }
+}
+
+@keyframes glassIn {
+  from {
+    opacity: 0.12;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.signalCaption {
+  margin-top: 0.7rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--enamel-dim);
+}
+
+.signalCaptionState {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--lamp-green-bright);
+  animation: glassIn 420ms 1.5s both;
+}
+
+/* ----------------------------------------------------------------------
+   Block indications: the three readings along the foot of the hero.
+   ---------------------------------------------------------------------- */
+
+.blockShelf {
+  display: grid;
+  gap: 0;
+  margin-top: clamp(2.5rem, 6vw, 3.75rem);
+  border-top: 1px solid var(--hairline);
+}
+
+@media (min-width: 720px) {
+  .blockShelf {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.blockCell {
+  padding: 1.05rem 0 1.1rem;
+  border-bottom: 1px solid var(--hairline);
+  min-width: 0;
+}
+
+@media (min-width: 720px) {
+  .blockCell {
+    padding: 1.15rem clamp(1rem, 2.4vw, 1.9rem);
+    border-bottom: none;
+    border-left: 1px solid var(--hairline);
+  }
+  .blockCell:first-child {
+    padding-left: 0;
+    border-left: none;
+  }
+}
+
+.blockLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--enamel-dim);
+}
+
+.blockNeedle {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lamp-green);
+  box-shadow: 0 0 9px rgba(79, 219, 146, 0.75);
+  flex: none;
+}
+
+.blockValue {
+  margin-top: 0.45rem;
+  font-size: clamp(1.02rem, 2.4vw, 1.16rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--enamel);
+}
+
+.blockNote {
+  margin-top: 0.15rem;
+  font-size: 0.86rem;
+  color: var(--enamel-dim);
+}
+
+/* ----------------------------------------------------------------------
+   Sections
+   ---------------------------------------------------------------------- */
+
+.section {
+  position: relative;
+  padding-block: var(--section-pad);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.sectionHead {
+  max-width: var(--measure);
+}
+
+.h2 {
+  font-size: clamp(1.7rem, 4vw, 2.55rem);
+  letter-spacing: -0.022em;
+  font-variation-settings: "wdth" 98;
+}
+
+.standfirst {
+  margin-top: 1rem;
+  max-width: 54ch;
+  color: var(--enamel-mid);
+  line-height: 1.6;
+}
+
+/* The frame: five levers standing in their quadrant, on a steel floor plate. */
+.frame {
+  margin-top: clamp(2.5rem, 6vw, 3.5rem);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-plate);
+  background: linear-gradient(180deg, rgba(26, 30, 37, 0.9), rgba(14, 16, 20, 0.9));
+  overflow: hidden;
+}
+
+.frameRow {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: clamp(0.9rem, 2.4vw, 1.6rem);
+  align-items: start;
+  align-content: start;
+  padding: clamp(1.15rem, 2.6vw, 1.6rem) clamp(1rem, 2.6vw, 1.75rem);
+  border-bottom: 1px solid var(--hairline);
+  transition: background var(--ease-state);
+}
+
+.frameRow:last-child {
+  border-bottom: none;
+}
+
+.frameRow:hover {
+  background: rgba(185, 138, 60, 0.05);
+}
+
+@media (min-width: 900px) {
+  .frame {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  .frameRow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.1rem;
+    border-bottom: none;
+    border-right: 1px solid var(--hairline);
+    padding: clamp(1.5rem, 2.4vw, 2rem) clamp(1rem, 1.8vw, 1.35rem) clamp(1.6rem, 2.6vw, 2.1rem);
+  }
+  .frameRow:last-child {
+    border-right: none;
+  }
+}
+
+.frameLeverCol {
+  min-height: 118px;
+}
+
+@media (min-width: 900px) {
+  .frameLeverCol {
+    min-height: 134px;
+  }
+}
+
+.frameLever {
+  position: relative;
+  width: 34px;
+  height: 92px;
+  border-radius: 17px 17px 4px 4px;
+  background: linear-gradient(96deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 46%),
+    var(--leverColour, #444);
+  box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(0, 0, 0, 0.5);
+  transition: transform var(--ease-state);
+}
+
+@media (min-width: 900px) {
+  .frameLever {
+    height: 108px;
+  }
+}
+
+.frameLever::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  bottom: 20px;
+  height: 12px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #d9c795, #8a6524 55%, #3d2c0f);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.frameRow:hover .frameLever,
+.frameRow:focus-within .frameLever {
+  transform: rotate(-4deg) translateY(-2px);
+}
+
+.frameNumber {
+  margin-top: 0.55rem;
+  font-family: var(--font-plate);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-align: center;
+  width: 34px;
+  color: var(--brass-light);
+  font-variant-numeric: tabular-nums;
+}
+
+.frameName {
+  font-size: clamp(1.08rem, 2.4vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--enamel);
+}
+
+.frameLine {
+  margin-top: 0.4rem;
+  font-size: 0.93rem;
+  line-height: 1.5;
+  color: var(--enamel-dim);
+}
+
+.frameNote {
+  margin-top: 1.5rem;
+  padding-left: 0.9rem;
+  border-left: 1px solid var(--brass-rule);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--enamel-dim);
+  max-width: 62ch;
+}
+
+/* Two blocks: the roadside, and the workshop behind it. */
+.pair {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 1.75rem);
+  margin-top: clamp(2.5rem, 6vw, 3.5rem);
+}
+
+@media (min-width: 820px) {
+  .pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.pairCell {
+  min-width: 0;
+  padding: clamp(1.5rem, 3.4vw, 2.25rem);
+  border-radius: var(--r-plate);
+  border: 1px solid var(--hairline);
+  background: linear-gradient(180deg, rgba(26, 30, 37, 0.72), rgba(14, 16, 20, 0.72));
+}
+
+.pairCellEnamel {
+  border-color: rgba(176, 70, 79, 0.5);
+  background:
+    linear-gradient(178deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 40%),
+    linear-gradient(180deg, var(--maroon) 0%, var(--maroon-deep) 100%);
+}
+
+.pairLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brass-light);
+}
+
+.pairCellEnamel .pairLabel {
+  color: rgba(244, 241, 234, 0.82);
+}
+
+.pairBody {
+  margin-top: 0.85rem;
+  color: var(--enamel-mid);
+  line-height: 1.58;
+}
+
+.pairCellEnamel .pairBody {
+  color: rgba(244, 241, 234, 0.94);
+}
+
+.pairFoot {
+  margin-top: 1.4rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--hairline);
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.92rem;
+}
+
+.pairCellEnamel .pairFoot {
+  border-top-color: rgba(244, 241, 234, 0.28);
+}
+
+.pairFootLine {
+  color: var(--enamel-mid);
+}
+
+.pairCellEnamel .pairFootLine {
+  color: rgba(244, 241, 234, 0.88);
+}
+
+.pairLink {
+  color: var(--enamel);
+  font-weight: 600;
+  text-decoration-color: rgba(244, 241, 234, 0.45);
+}
+
+.pairLink:hover {
+  text-decoration-color: var(--enamel);
+}
+
+/* ----------------------------------------------------------------------
+   The twenty-four hour ring: the clock a signal box works to.
+   ---------------------------------------------------------------------- */
+
+.sectionLit {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.sectionLight {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url("/boxlight-close.svg");
+  background-size: cover;
+  background-position: center 62%;
+  opacity: 0.85;
+}
+
+.clockGrid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+  margin-top: clamp(2.25rem, 5vw, 3rem);
+}
+
+@media (min-width: 860px) {
+  .sectionLit {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.sectionLight {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url("/boxlight-close.svg");
+  background-size: cover;
+  background-position: center 62%;
+  opacity: 0.85;
+}
+
+.clockGrid {
+    grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  }
+}
+
+.ring {
+  position: relative;
+  width: min(320px, 78vw);
+  aspect-ratio: 1;
+  justify-self: center;
+  min-width: 0;
+}
+
+.ringFace {
+  position: absolute;
+  inset: 0;
+}
+
+.ringHub {
+  position: absolute;
+  inset: 22%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 32%, rgba(41, 167, 101, 0.14), rgba(14, 16, 20, 0) 70%);
+}
+
+.ringNow {
+  font-family: var(--font-plate);
+  font-size: clamp(1.85rem, 6vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+  color: var(--enamel);
+}
+
+.ringNowLabel {
+  margin-top: 0.4rem;
+  font-size: 0.64rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--enamel-dim);
+}
+
+.ringState {
+  margin-top: 0.55rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--lamp-green-bright);
+}
+
+.clockCopy {
+  min-width: 0;
+}
+
+.clockList {
+  margin: 1.6rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.clockItem {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: start;
+  font-size: 0.95rem;
+  color: var(--enamel-mid);
+}
+
+.clockTick {
+  margin-top: 0.42rem;
+  width: 22px;
+  height: 2px;
+  background: var(--brass);
+}
+
+/* ----------------------------------------------------------------------
+   Close
+   ---------------------------------------------------------------------- */
+
+.close {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(5rem, 12vh, 8rem);
+  text-align: center;
+  background:
+    linear-gradient(178deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 42%),
+    linear-gradient(172deg, var(--maroon-light) 0%, var(--maroon) 38%, var(--maroon-deep) 100%);
+  border-top: 1px solid var(--maroon-edge);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.55);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.14) inset;
+}
+
+/* The keyline, exactly as it runs round the running-in board upstairs. */
+.close::before {
+  content: "";
+  position: absolute;
+  inset: clamp(10px, 1.8vw, 20px);
+  border: 2px solid rgba(244, 241, 234, 0.82);
+  border-radius: 3px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.closeHead {
+  font-size: clamp(2rem, 5.4vw, 3.2rem);
+  letter-spacing: -0.025em;
+  font-variation-settings: "wdth" 96;
+}
+
+.closeBody {
+  margin: 1rem auto 0;
+  max-width: 40ch;
+  color: rgba(244, 241, 234, 0.86);
+}
+
+.closeActions {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(2.25rem, 5vw, 3.25rem);
+}
+
+.closeFoot {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  font-size: 0.9rem;
+  color: rgba(244, 241, 234, 0.72);
+}
+
+.leverLarge {
+  min-height: clamp(78px, 11vw, 106px);
+}
+
+.leverLarge .leverHandle {
+  width: clamp(42px, 5.5vw, 58px);
+}
+
+.leverLarge .leverHandle::after {
+  inset: 9px auto 9px 12px;
+  width: 9px;
+  border-radius: 5px;
+}
+
+.leverLarge .leverPlate {
+  gap: 0.2rem;
+  padding: 0.7rem clamp(1.3rem, 3vw, 2.25rem) 0.85rem;
+}
+
+.leverLarge .leverLabel {
+  font-size: clamp(0.68rem, 1.3vw, 0.8rem);
+  letter-spacing: 0.24em;
+}
+
+.leverLarge .leverNumber {
+  font-size: clamp(1.55rem, 5.6vw, 2.9rem);
+  letter-spacing: -0.02em;
+}
+
+.leverReverse {
+  background: linear-gradient(180deg, #f8f6f0 0%, #e4e0d5 100%);
+  border-color: rgba(0, 0, 0, 0.34);
+  color: var(--maroon-deep);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 18px 34px -18px rgba(0, 0, 0, 0.85),
+    0 6px 14px -8px rgba(0, 0, 0, 0.5);
+}
+
+.leverReverse .leverHandle {
+  background: linear-gradient(96deg, #3d434d 0%, #23272f 52%, #12151a 100%);
+  border-right-color: rgba(0, 0, 0, 0.5);
+}
+
+.leverReverse .leverLabel {
+  color: var(--maroon);
+}
+
+.leverReverse:hover {
+  border-color: rgba(0, 0, 0, 0.5);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 22px 40px -18px rgba(0, 0, 0, 0.9),
+    0 8px 16px -8px rgba(0, 0, 0, 0.55);
+}
+
+/* ----------------------------------------------------------------------
+   Footer
+   ---------------------------------------------------------------------- */
+
+.foot {
+  padding-block: 2.5rem 6.5rem;
+  font-size: 0.85rem;
+  color: var(--enamel-dim);
+}
+
+@media (min-width: 720px) {
+  .foot {
+    padding-bottom: 2.75rem;
+  }
+}
+
+.footGrid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+@media (min-width: 720px) {
+  .footGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: end;
+  }
+}
+
+.footName {
+  color: var(--enamel-mid);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.footRight {
+  display: grid;
+  gap: 0.35rem;
+}
+
+@media (min-width: 720px) {
+  .footRight {
+    justify-items: end;
+    text-align: right;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   The mobile call bar: the catch handle sits under the thumb.
+   ---------------------------------------------------------------------- */
+
+.callBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  padding: 0.6rem var(--gutter) calc(0.6rem + env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, rgba(14, 16, 20, 0.72), rgba(9, 10, 13, 0.97));
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--hairline);
+}
+
+.callBar .lever {
+  display: flex;
+  width: 100%;
+}
+
+.callBar .leverPlate {
+  flex: 1;
+}
+
+@media (min-width: 720px) {
+  .callBar {
+    display: none;
+  }
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .lever:hover,
+  .lever:active {
+    transform: none;
+  }
+  .frameRow:hover .frameLever,
+  .frameRow:focus-within .frameLever {
+    transform: none;
+  }
+}

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="presentation" aria-hidden="true">
+  <defs>
+    <!-- 1. POOL: the signal box window's spill lying on the ballast. Squashed
+         to roughly a third of its height and set low, so the light lies on the
+         ground rather than hanging in mid air. -->
+    <radialGradient id="pool" cx="0.30" cy="0.83" r="0.62" gradientTransform="translate(0 0.575) scale(1 0.31)">
+      <stop offset="0" stop-color="#ffd8a2" stop-opacity="0.30"/>
+      <stop offset="0.28" stop-color="#f6bb7c" stop-opacity="0.17"/>
+      <stop offset="0.55" stop-color="#c07d45" stop-opacity="0.075"/>
+      <stop offset="0.78" stop-color="#6d4527" stop-opacity="0.028"/>
+      <stop offset="1" stop-color="#2b1a10" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- 2. CONTACT: the ground goes to near black at the bottom edge, painted
+         under the pool so the light has something to sit against. -->
+    <linearGradient id="contact" x1="0" y1="0.52" x2="0" y2="1">
+      <stop offset="0" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#000000" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.62"/>
+    </linearGradient>
+
+    <!-- 3. HEAD: the lit window itself, small and genuinely hot, standing at
+         the near edge of the pool. -->
+    <radialGradient id="head" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffeccb" stop-opacity="0.62"/>
+      <stop offset="0.42" stop-color="#ffcf8e" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#c98a45" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- 4. THROW: the wedge cast off the window frame, aimed off the lamp and
+         masked so it dies well before the top of the frame. -->
+    <linearGradient id="throwFade" x1="0.1" y1="1" x2="0.62" y2="0.06">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="0.45" stop-color="#ffffff" stop-opacity="0.30"/>
+      <stop offset="0.82" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="throwMask">
+      <rect width="1600" height="900" fill="url(#throwFade)"/>
+    </mask>
+
+    <!-- 5. SECOND SOURCE: the signal lamp standing off down the line, a weak
+         red point that never competes with the window. -->
+    <radialGradient id="lamp" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ff6a52" stop-opacity="0.34"/>
+      <stop offset="0.3" stop-color="#c9301f" stop-opacity="0.11"/>
+      <stop offset="1" stop-color="#5c1109" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="sky" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#1d2b3a" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#0d1116" stop-opacity="0"/>
+    </radialGradient>
+      <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="#0e1014"/>
+  <ellipse cx="1180" cy="130" rx="760" ry="440" fill="url(#sky)"/>
+  <g mask="url(#throwMask)">
+    <polygon points="300,560 470,545 980,900 -40,900" fill="#ffcb8c" opacity="0.05" filter="url(#soft)"/>
+    <polygon points="318,566 372,562 640,900 176,900" fill="#ffe0b0" opacity="0.045" filter="url(#soft)"/>
+  </g>
+  <rect width="1600" height="900" fill="url(#pool)"/>
+  <ellipse cx="352" cy="556" rx="220" ry="150" fill="url(#head)"/>
+  <ellipse cx="1372" cy="404" rx="190" ry="190" fill="url(#lamp)"/>
+  <rect width="1600" height="900" fill="url(#contact)"/>
+</svg>

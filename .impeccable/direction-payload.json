@@ -1,0 +1,67 @@
+{
+  "title": "AD Motors Mobile Services 24/7: choose the visual world",
+  "question": "The roll assigned Signal Box. Keep it, take an alternate, or take the standing canon.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Signal Box",
+      "kicker": "THE ROLL",
+      "lineage": "Midland Railway signalling, from Derby's own works town",
+      "thesis": "The one trade whose entire point is that somebody is awake at three in the morning, and it was invented in Derby.",
+      "palette": ["#14161a", "#ecebe6", "#8c1f2b", "#2f7d4f", "#b98a3c"],
+      "materials": ["cast enamel sign", "lever frame", "lamp glass", "soot iron"],
+      "viewport": "A full-bleed enamel running-in board carrying the trading name, lit by one signal lamp, with the mobile number set as the lever you pull.",
+      "risk": "Railway enamel is a heritage-shop trope, so a timid render reads as a preserved-line gift shop rather than a working trade."
+    },
+    {
+      "id": "challenger-seven-segment",
+      "label": "Bedside 3AM",
+      "lineage": "the seven-segment display family: bedside clocks, forecourt totems, scoreboards",
+      "thesis": "The hour is the product, so the page is built from the mask that shows the hour.",
+      "case": "Fuses hard: the visitor is looking at red digits at 3am when the car dies, and the phone number renders natively as lit cells. Loses on breadth, because nothing longer than a number can be set in the face.",
+      "palette": ["#0a0a0c", "#ff2d1a", "#241414", "#ffb020"],
+      "materials": ["LED segment mask", "ghost cells", "matte panel"],
+      "viewport": "The current Derby hour standing in lit cells above the number, with OPEN never going dark.",
+      "risk": "Red glow on near-black is the most crowded look in the category, and body copy has to leave the world entirely.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-seven-segment-alarm-clock-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/signals-instruments-seven-segment-alarm-clock.webp"
+    },
+    {
+      "id": "challenger-grid-horizon",
+      "label": "Night Drive Grid",
+      "lineage": "the receding wireframe grid and banded sun of a synth cover",
+      "thesis": "The road at night, drawn as the grid that keeps arriving underneath you.",
+      "case": "Fuses only halfway: night driving is genuinely the visitor's scene, but the world promises a music video and the visitor wants a working trader. Weakest on product clarity of the three.",
+      "palette": ["#2b0f5e", "#ff2e88", "#14e0ff", "#ffcf4a"],
+      "materials": ["wireframe grid", "banded sun", "extruded caps"],
+      "viewport": "A cyan grid running to a striped horizon with the trading name extruded above it.",
+      "risk": "Reads as a game menu, and a stranded driver at 2am is not in the mood for a game menu.",
+      "hero": "https://impeccable.style/worlds/cards/digital-design-canon-grid-horizon-sunset-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/digital-design-canon-grid-horizon-sunset.webp"
+    },
+    {
+      "id": "challenger-cracktro",
+      "label": "Scroller Queue",
+      "lineage": "the cracktro title screen: one bitmap face on an emissive void",
+      "thesis": "Rank is depth, so the job in front of you is simply the brightest line on a black screen.",
+      "case": "Fuses poorly because the demoscene is not this audience's world at all, and enclosure-free bitmap text fights the one thing the page must do, which is hand over a phone number fast. Included because its grammar is the most disciplined of the remainder.",
+      "palette": ["#000000", "#d8d3c8", "#6e6a63", "#ffa726"],
+      "materials": ["bitmap face", "drifting dust fields", "amber caret"],
+      "viewport": "One ivory bitmap line holding still on black while grey dust drifts behind it.",
+      "risk": "Beautiful and wrong: it says scene demo, not mechanic.",
+      "hero": "https://impeccable.style/worlds/cards/operate-c-cracktro-scroller-queue-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/operate-c-cracktro-scroller-queue.webp"
+    }
+  ],
+  "reroll": true,
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "The dark professional trade page your other nine sites run, executed at full craft.",
+    "palette": ["#101215", "#1a1d22", "#e9e7e3", "#8b9099"],
+    "materials": ["graphite ground", "worklamp pool", "hairline rules"],
+    "viewport": "A lit hero on graphite, the trading name and the 24 hour fact, and the number as the one bright action.",
+    "risk": "It is the arrangement a visitor expects, so it wins nothing on memory and everything on trust. Accent colour is chosen straight after this."
+  },
+  "steer": true
+}

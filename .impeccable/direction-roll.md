@@ -63,9 +63,21 @@ Weighed on audience identification and product clarity, Signal Box held. It wins
 identification on locality and ties on clarity, because a signal that comes off
 danger is exactly what the visitor wants to happen.
 
-## What the user chose
+## What the user chose, and then unchose
 
 The decision page offered the assigned direction, the three fused challengers,
 and the standing canon exit (the dark professional trade page the ten sibling
-sites run). The user took **the roll**, not canon. That is the first time in
-eleven builds in this series that canon has not been chosen.
+sites run). The user took **the roll**, not canon, which was the first time in
+eleven builds in this series that canon had not been chosen.
+
+Signal Box was then built in full, taken through a finish review and two
+verdict rounds, and shipped. Seeing it live, the user asked for **something
+more professional**, which is the standing exit taken in plain words. The world
+was replaced wholesale rather than polished: convention became the commitment,
+the craft bar is the client's own showroomdetailing and CJValeting builds, and
+the accent, copper, was the client's choice.
+
+The lesson for the next one in this series: the roll can win the decision page
+and still lose the client. Offering it stays right, and the record of the
+choice matters, but for these trade clients the built artifact is the only
+review that counts. Canon is now recorded as a brand commitment in PRODUCT.md.

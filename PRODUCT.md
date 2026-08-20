@@ -47,7 +47,9 @@ Undecided, and therefore absent from the page: email address, coverage radius, c
 
 The name carries "24/7" inside it, so availability is the identity, not a feature line. The trading name is written as the Google profile writes it.
 
-The client authorised the signal box lever paint code on 20 August 2026, asked directly and given the alternatives: the five services keep the real British frame colours (red stop, yellow distant, black points, blue facing point lock, green release) rather than falling back to the page's maroon and brass. It is the one place other hues appear, and it is a client decision, not a design assumption.
+The client's standing visual preference is the house dark-professional canon: graphite ground, hairline rules as the only structural device, one rationed chromatic accent, wide-stretched Archivo caps against plain sentence-case body, flat depth. Recorded as a brand commitment on 20 August 2026, when a fully built expressive direction (a Midland Railway signal box, which the client had chosen from the roll) was shown and rejected with "something more professional please". Canon is the commitment for this site; it is not to be reinterpreted or given a smuggled quirk.
+
+The accent for this site is copper, chosen by the client on 20 August 2026. Accent is the whole of the divergence between the sibling sites, and copper is the seventh in the register.
 
 ## Evidence on Hand
 

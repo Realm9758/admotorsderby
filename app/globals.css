@@ -1,82 +1,75 @@
 /*
-  AD Motors Mobile Services 24/7, Derby.
+  AD Motors Mobile Services 24/7 (Derby): the house dark-professional canon,
+  copper.
 
-  World: the signal box, from the town the Midland Railway built. Derby made
-  the railway that ran to the minute through the night, and signalling is the
-  one trade whose entire point is that somebody is awake at three in the
-  morning. That is this business, so the page is built out of that frame:
-  a vitreous enamel running-in board, a painted lever you pull, a semaphore
-  arm that comes off danger, brass plates, and the twenty-four hour clock.
+  Sibling to the Showroom Shine, CJ Valeting, M&A Auto Service, A V Car,
+  Ronniegears and Mobile Mechanic (Hull) systems: graphite ground, hairline
+  rules as the only structural device, one rationed chromatic accent, wide
+  stretched Archivo caps against plain sentence-case body, flat depth. The
+  accent is the whole of the divergence, by instruction.
 
-  Materials, and where each is allowed:
+  Copper rather than a signal colour: this is a mechanic, and the warm metal
+  reads as the tooling rather than as a hazard lamp. The register so far runs
+  Showroom champagne gold, CJ claret, M&A signal amber, A V Spode cobalt,
+  Ronniegears Trent green, Hull On-Air Red, and now this.
 
-    ENAMEL     Midland maroon fields carrying white letters. Whole regions,
-               never an accent. The board, the target disc, the close.
-    IRON       The night ground. Soot black with a warm cast from one window.
-    BRASS      Plate edges, lever numbers, rules. Never a text colour on
-               maroon, where it falls under contrast.
-    LAMP       Two glasses only: signal red for the state the visitor is in,
-               lamp green for what happens when they ring. Rationed to the
-               signal, the block indications and the hour ring.
+  What this client forces that most siblings did not:
 
-  No photograph exists of this business and none may be invented, so the night
-  is lit rather than shot: public/boxlight*.svg build a signal box window
-  spilling onto ballast out of five named parts, pool, contact, head, throw and
-  a weak second source. Three assets, because a landscape pool cover-cropped
-  into a phone frame falls off the edge.
+  1. No photographs exist and none may be invented, so the hero is lit rather
+     than shot: a work light stood low on a driveway at night, produced as an
+     asset in five named parts (public/worklamp.svg), with a portrait
+     re-author for phones and a centred one behind the closing number.
+
+  2. The evidence is thinner than any sibling's: a trading name, an address, a
+     mobile number and "open 24 hours". No rating, no reviews, no prices, no
+     coverage radius, no credentials. So there is no review section at all,
+     the fact band runs three published facts, and the services list is a
+     short generic index the client explicitly approved rather than a scraped
+     one.
+
+  3. The business is the mobile arm of AD Motors Limited at the same address,
+     confirmed by the client, so the workshop behind the van is a section of
+     its own rather than a line of copy.
 */
 
 :root {
-  /* Iron: the night ground. Cold, with a trace of blue so the window reads warm. */
-  --iron: #0e1014;
-  --iron-panel: #14171d;
-  --iron-raised: #1a1e25;
-  --iron-deep: #090a0d;
+  /* Ground. Kept neutral-to-warm so the copper has somewhere to sit. */
+  --graphite-ground: #100e0c;
+  --graphite-panel: #17130f;
+  --graphite-raised: #1e1913;
 
-  /* Enamel: Midland maroon, the field colour. */
-  --maroon: #7d1f28;
-  --maroon-deep: #5e161d;
-  --maroon-light: #97303a;
-  --maroon-edge: #b0464f;
+  /* Accent: copper, rationed */
+  --copper: #c1703a;
+  --copper-bright: #e08b4f;
+  --copper-deep: #8f4f24;
+  --copper-ink: #190f05;
 
-  /* Enamel white and its ramp. Warm, because vitreous white always is. */
-  --enamel: #f4f1ea;
-  --enamel-mid: #cdc7bb;
-  --enamel-dim: #a49d90;
+  /* Text ramp */
+  --workshop-white: #f4f2ef;
+  --steel-mid: #c4bdb4;
+  --steel-dim: #9a9188;
 
-  /* Brass. */
-  --brass: #b98a3c;
-  --brass-light: #dcb268;
-  --brass-deep: #77571f;
+  /* Rules */
+  --hairline: rgba(244, 242, 239, 0.12);
+  --hairline-strong: rgba(244, 242, 239, 0.22);
 
-  /* Lamp glass. */
-  --lamp-red: #d8382c;
-  --lamp-red-bright: #ff6151;
-  --lamp-green: #29a765;
-  --lamp-green-bright: #4fdb92;
+  /* Shape */
+  --r-focus: 2px;
+  --r-button: 3px;
+  --r-frame: 4px;
+  --r-card: 5px;
 
-  /* Rules. */
-  --hairline: rgba(244, 241, 234, 0.13);
-  --hairline-strong: rgba(244, 241, 234, 0.24);
-  --brass-rule: rgba(185, 138, 60, 0.42);
+  /* Rhythm */
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --block: 3rem;
+  --grid-gap: clamp(1.5rem, 3vw, 2.5rem);
+  --section-pad: clamp(4.5rem, 10vh, 7.5rem);
+  --container: 1180px;
+  --measure: 68ch;
 
-  /* Shape. Cast and rolled iron has a small radius, never a soft one. */
-  --r-plate: 3px;
-  --r-board: 5px;
-  --r-lever: 4px;
-
-  /* Rhythm. */
-  --gutter: clamp(1.25rem, 4vw, 2.75rem);
-  --container: 1200px;
-  --measure: 66ch;
-  --section-pad: clamp(4.5rem, 10vh, 8rem);
-
-  /* Motion. */
-  --ease-state: 160ms cubic-bezier(0.32, 0.72, 0.35, 1);
-  --ease-pull: 780ms cubic-bezier(0.16, 1, 0.3, 1);
-
-  --font-sign: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
-  --font-plate: var(--font-mono), ui-monospace, "SFMono-Regular", monospace;
+  /* Motion */
+  --ease-state: 150ms ease-out;
+  --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
 
   color-scheme: dark;
 }
@@ -89,1302 +82,165 @@
 
 html {
   scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn,
+  .btnPrimary:hover,
+  .btnGhost:hover,
+  .btnPrimary:active,
+  .btnGhost:active {
+    transition: none;
+    transform: none;
+  }
 }
 
 body {
   margin: 0;
-  background: var(--iron);
-  color: var(--enamel);
-  font-family: var(--font-sign);
-  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.075rem);
-  line-height: 1.62;
-  font-variation-settings: "wdth" 100;
+  background: var(--graphite-ground);
+  color: var(--workshop-white);
+  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
 }
 
-/* The surfaces the browser draws, themed off the same palette. */
+/* --- Browser surfaces carry the design too ------------------------------ */
+
 ::selection {
-  background: var(--maroon);
-  color: var(--enamel);
-}
-
-::-webkit-scrollbar {
-  width: 11px;
-  height: 11px;
-}
-::-webkit-scrollbar-track {
-  background: var(--iron-deep);
-}
-::-webkit-scrollbar-thumb {
-  background: #2b3038;
-  border: 2px solid var(--iron-deep);
-  border-radius: 6px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--brass-deep);
-}
-
-html {
-  scrollbar-color: #2b3038 var(--iron-deep);
-  scrollbar-width: thin;
-  caret-color: var(--brass-light);
+  background: var(--copper);
+  color: var(--copper-ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--brass-light);
+  outline: 2px solid var(--copper);
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: var(--r-focus);
 }
 
-a {
-  color: inherit;
-  text-underline-offset: 0.22em;
-  text-decoration-thickness: 1px;
-  text-decoration-color: var(--brass-rule);
+* {
+  caret-color: var(--copper);
+  scrollbar-width: thin;
+  scrollbar-color: #322820 var(--graphite-ground);
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--graphite-ground);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #322820;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #48372a;
+}
+
+/* --- Type ---------------------------------------------------------------- */
 
 h1,
 h2,
 h3 {
   margin: 0;
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.015em;
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  font-stretch: 120%;
   text-wrap: balance;
-  min-width: 0;
 }
 
-p {
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul {
   margin: 0;
 }
 
-img,
-svg {
-  display: block;
-  max-width: 100%;
+ul {
+  padding: 0;
+  list-style: none;
 }
 
-.wrap {
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+section[id] {
+  scroll-margin-top: 84px;
+}
+
+/* --- Shared furniture ---------------------------------------------------- */
+
+.container {
   width: 100%;
   max-width: var(--container);
-  margin-inline: auto;
+  margin: 0 auto;
   padding-inline: var(--gutter);
 }
 
-/* Grain. Vitreous enamel and soot both have tooth; without it the light bands. */
-.grain {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.26;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
-}
-
-/* Enamel surface. Fired glass on steel: a specular sweep across the face and a
-   fine speckle in the glaze. Applied to every maroon field so the material the
-   world is named after is actually rendered, not implied by a flat gradient. */
-.enamel::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background-image: url("/enamel.svg");
-  background-size: 170px 170px;
-  background-repeat: repeat;
-  mix-blend-mode: soft-light;
-  opacity: 0.55;
-}
-
-/* ----------------------------------------------------------------------
-   The block shelf: the strip of instruments above a signalman's frame.
-   Here it is the page's own header, and it holds the number all the way
-   down the page.
-   ---------------------------------------------------------------------- */
-
-.shelf {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  background: rgba(14, 16, 20, 0.86);
-  backdrop-filter: blur(12px) saturate(120%);
-  border-bottom: 1px solid var(--hairline);
-}
-
-.shelfInner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  min-height: 58px;
-}
-
-.shelfMark {
-  display: flex;
-  align-items: baseline;
-  gap: 0.6rem;
-  font-weight: 700;
-  font-size: 0.86rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-variation-settings: "wdth" 112;
-}
-
-.shelfMarkSub {
-  color: var(--enamel-dim);
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  font-size: 0.7rem;
-}
-
-.shelfCall {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  gap: 0.55rem;
-  padding: 0.5rem 0.95rem;
-  border: 1px solid var(--brass-rule);
-  border-radius: var(--r-plate);
-  background: linear-gradient(180deg, rgba(185, 138, 60, 0.14), rgba(185, 138, 60, 0.05));
-  color: var(--enamel);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.86rem;
-  letter-spacing: 0.02em;
-  font-variant-numeric: tabular-nums;
-  transition: background var(--ease-state), border-color var(--ease-state);
-}
-
-.shelfCall:hover {
-  background: linear-gradient(180deg, rgba(185, 138, 60, 0.26), rgba(185, 138, 60, 0.1));
-  border-color: var(--brass);
-}
-
-.shelfCallHint {
-  display: none;
-  color: var(--enamel-dim);
-  font-weight: 500;
-  font-size: 0.72rem;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-@media (min-width: 720px) {
-  .shelfCallHint {
-    display: inline;
-  }
-}
-
-/* ----------------------------------------------------------------------
-   Hero
-   ---------------------------------------------------------------------- */
-
-.hero {
-  position: relative;
-  isolation: isolate;
-  padding-block: clamp(1.9rem, 4.6vh, 3.1rem) clamp(2.25rem, 5vh, 3.5rem);
-  overflow: hidden;
-  border-bottom: 1px solid var(--hairline);
-}
-
-.heroLight {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background-image: url("/boxlight-portrait.svg");
-  background-size: cover;
-  background-position: center bottom;
-}
-
-@media (min-width: 760px) {
-  .heroLight {
-    background-image: url("/boxlight.svg");
-  }
-}
-
-.heroGrid {
-  display: grid;
-  gap: clamp(2rem, 5vw, 3.5rem);
-  align-items: end;
-}
-
-@media (min-width: 940px) {
-  .heroGrid {
-    grid-template-columns: minmax(0, 1fr) 168px;
-  }
-}
-
-.heroCol {
-  min-width: 0;
-}
-
-/* The running-in board. Vitreous enamel: a maroon ground, a white keyline set
-   in from the edge, bolted through at both ends. */
-.board {
-  position: relative;
-  display: block;
-  width: 100%;
-  padding: clamp(1rem, 2.9vw, 1.65rem) clamp(1.4rem, 4.4vw, 3rem);
-  border-radius: var(--r-board);
-  background:
-    linear-gradient(102deg, rgba(255, 255, 255, 0) 12%, rgba(255, 255, 255, 0.15) 27%, rgba(255, 255, 255, 0.03) 39%, rgba(255, 255, 255, 0) 54%),
-    linear-gradient(178deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0) 38%),
-    linear-gradient(180deg, var(--maroon-light) 0%, var(--maroon) 42%, var(--maroon-deep) 100%);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.16) inset,
-    0 -1px 0 rgba(0, 0, 0, 0.4) inset,
-    0 26px 60px -32px rgba(0, 0, 0, 0.95),
-    0 3px 10px -4px rgba(0, 0, 0, 0.6);
-}
-
-.board::before {
-  content: "";
-  position: absolute;
-  inset: clamp(6px, 1.2vw, 11px);
-  border: 2px solid rgba(244, 241, 234, 0.9);
-  border-radius: 2px;
-  pointer-events: none;
-}
-
-.boardBolt {
-  position: absolute;
-  isolation: isolate;
-  top: 50%;
-  width: 13px;
-  height: 13px;
-  translate: 0 -50%;
-  border-radius: 50%;
-  background: radial-gradient(circle at 33% 27%, #f6e6bb 0%, #d4ab61 32%, #97722c 66%, #4a3611 100%);
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.7),
-    0 0 0 1px rgba(0, 0, 0, 0.35),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.35);
-}
-
-.boardBolt::before {
-  content: "";
-  position: absolute;
-  inset: -3px -4px -2px -3px;
-  background: #4a3739;
-  clip-path: polygon(18% 0%, 62% 6%, 100% 34%, 88% 78%, 44% 100%, 8% 72%, 0% 30%);
-  opacity: 0.34;
-  z-index: -1;
-}
-
-.boardBoltLeft {
-  left: clamp(9px, 1.6vw, 15px);
-}
-.boardBoltRight {
-  right: clamp(9px, 1.6vw, 15px);
-}
-
-.boardText {
-  position: relative;
-  text-align: center;
-}
-
-.boardTop {
-  display: block;
-  margin: 0;
-  font-size: clamp(2.4rem, 9.4vw, 4.9rem);
-  font-weight: 700;
-  line-height: 0.94;
-  letter-spacing: clamp(0.02em, 0.5vw, 0.07em);
-  text-transform: uppercase;
-  font-variation-settings: "wdth" 108;
-  color: var(--enamel);
-  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.35);
-}
-
-.boardBottom {
-  display: block;
-  margin-top: clamp(0.25rem, 1vw, 0.5rem);
-  font-size: clamp(0.82rem, 2.5vw, 1.5rem);
-  font-weight: 600;
-  letter-spacing: clamp(0.18em, 0.7vw, 0.34em);
-  text-transform: uppercase;
-  font-variation-settings: "wdth" 112;
-  color: rgba(244, 241, 234, 0.92);
-}
-
-/* The target disc: the round enamel sign that hangs at the end of a board. */
-/* The target disc hangs off the right end of the board. On a phone the board's
-   second line runs nearly to that end, so the disc shrinks and stops
-   overlapping the lettering. */
-.targetWrap {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: -0.7rem;
-  position: relative;
-  z-index: 2;
-}
-
-.boardGroup {
-  position: relative;
-}
-
-@media (min-width: 720px) {
-  .targetWrap {
-    position: absolute;
-    right: clamp(1rem, 4vw, 3.5rem);
-    bottom: clamp(-74px, -5.2vw, -58px);
-    margin-top: 0;
-  }
-}
-
-/* Above this width the signal stands at the right of the hero, so the disc
-   hangs further in rather than colliding with the post. */
-@media (min-width: 940px) {
-  .targetWrap {
-    right: clamp(200px, 15vw, 232px);
-  }
-}
-
-.target {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 62px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background:
-    linear-gradient(114deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.18) 33%, rgba(255, 255, 255, 0) 48%),
-    radial-gradient(circle at 34% 26%, var(--maroon-light), var(--maroon) 48%, var(--maroon-deep) 100%);
-  box-shadow:
-    0 0 0 3px var(--enamel) inset,
-    0 0 0 5px var(--maroon) inset,
-    0 14px 26px -14px rgba(0, 0, 0, 0.9);
-  font-weight: 700;
-  font-size: clamp(0.98rem, 2.6vw, 1.6rem);
-  letter-spacing: 0.01em;
-  font-variation-settings: "wdth" 105;
-  color: var(--enamel);
-}
-
-@media (min-width: 720px) {
-  .target {
-    width: clamp(84px, 8vw, 104px);
-  }
-}
-
-.heroHead {
-  margin-top: clamp(1.4rem, 3vw, 2.25rem);
-  font-size: clamp(2rem, 5.4vw, 3.4rem);
-  letter-spacing: -0.025em;
-  font-variation-settings: "wdth" 96;
-  max-width: 16ch;
-}
-
-.heroBody {
-  margin-top: 0.95rem;
-  max-width: 46ch;
-  color: var(--enamel-mid);
-  font-size: clamp(1.02rem, 0.98rem + 0.3vw, 1.19rem);
-  line-height: 1.58;
-}
-
-.heroActions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.9rem 1.1rem;
-  margin-top: clamp(1.4rem, 3vw, 2rem);
-}
-
-/* ----------------------------------------------------------------------
-   The lever. The primary action is the object a signalman actually pulls:
-   a painted stock on a fulcrum with a catch handle down its front face, and
-   the number engraved on the brass description plate bolted in front of it.
-   Pressing it swings the stock through its catch.
-   ---------------------------------------------------------------------- */
-
-.lever {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  color: #1c1408;
-  transition: transform var(--ease-state);
-}
-
-.leverStock {
-  flex: 0 0 auto;
-  width: 36px;
-  margin-right: -6px;
-  z-index: 1;
-  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.55));
-}
-
-.stock {
-  width: 100%;
-  height: auto;
-}
-
-.stockShaft {
-  fill: var(--lamp-red);
-}
-
-.stockGrip {
-  fill: #8d1e16;
-}
-
-.stockSheen {
-  fill: rgba(255, 255, 255, 0.34);
-}
-
-.stockCatch {
-  fill: #7b838f;
-}
-
-.stockTrigger {
-  fill: #9aa2ae;
-}
-
-.stockBlock {
-  fill: #1a1e25;
-}
-
-.stockPin {
-  fill: #454d59;
-}
-
-.stockSwing {
-  transform-box: fill-box;
-  transform-origin: 39% 101%;
-  transition: rotate var(--ease-state);
-}
-
-.lever:hover .stockSwing {
-  rotate: -6deg;
-}
-
-.lever:active .stockSwing {
-  rotate: -13deg;
-}
-
-/* The description plate: brass, bolted, engraved. */
-.leverPlate {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.1rem;
-  min-height: 66px;
-  padding: 0.5rem 1.3rem 0.6rem 1.5rem;
-  border-radius: var(--r-plate);
-  background:
-    linear-gradient(104deg, rgba(255, 255, 255, 0) 24%, rgba(255, 255, 255, 0.14) 35%, rgba(255, 255, 255, 0) 47%),
-    repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.028) 0 1px, rgba(255, 255, 255, 0.018) 1px 3px),
-    linear-gradient(180deg, #dcbd82 0%, #c19a57 52%, #a58240 100%);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.55) inset,
-    0 0 0 1px rgba(0, 0, 0, 0.4),
-    0 16px 30px -18px rgba(0, 0, 0, 0.95),
-    0 5px 12px -7px rgba(0, 0, 0, 0.7);
-  transition: box-shadow var(--ease-state), filter var(--ease-state);
-}
-
-/* Rivets. A description plate is bolted to the frame, not printed on it. */
-.leverPlate::before,
-.leverPlate::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  translate: 0 -50%;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 34% 30%, #f2dfb2, #8a6524 62%, #3d2c0f);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
-}
-
-.leverPlate::before {
-  left: 8px;
-}
-
-.leverPlate::after {
-  right: 9px;
-}
-
-.leverClose .leverPlate::before {
-  left: clamp(10px, 1.2vw, 16px);
-}
-
-.leverClose .leverPlate::after {
-  right: clamp(12px, 1.4vw, 20px);
-}
-
-.leverMain {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-  min-width: 0;
-}
-
-.leverAside {
-  display: none;
-}
-
-.leverDesc {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #2c2010;
-}
-
-.leverNumber {
-  font-size: clamp(1.22rem, 3.2vw, 1.55rem);
-  font-weight: 700;
-  letter-spacing: 0.005em;
-  font-variant-numeric: tabular-nums;
-  font-variation-settings: "wdth" 104;
-  white-space: nowrap;
-  color: #1c1408;
-}
-
-.lever:hover .leverPlate {
-  filter: brightness(1.07);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.65) inset,
-    0 0 0 1px rgba(0, 0, 0, 0.45),
-    0 20px 36px -18px rgba(0, 0, 0, 1),
-    0 7px 14px -7px rgba(0, 0, 0, 0.75);
-}
-
-.lever:active {
-  transform: translateY(1px);
-}
-
-/* At the close the same object runs the width of the plate, and the number is
-   the largest type on the page. */
-.leverClose {
-  width: 100%;
-  margin-top: clamp(2rem, 5vw, 3.25rem);
-  text-align: left;
-}
-
-.leverClose .leverStock {
-  width: clamp(50px, 6.4vw, 78px);
-  margin-right: clamp(-14px, -1vw, -8px);
-}
-
-.leverClose .leverPlate {
-  flex: 1;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(1rem, 3vw, 2.5rem);
-  min-height: clamp(104px, 14vw, 160px);
-  padding: clamp(0.9rem, 2vw, 1.4rem) clamp(1.2rem, 3vw, 2.2rem) clamp(1rem, 2.2vw, 1.5rem) clamp(1.6rem, 3.4vw, 2.6rem);
-}
-
-.leverClose .leverDesc {
-  font-size: clamp(0.68rem, 1.3vw, 0.82rem);
-  letter-spacing: 0.24em;
-}
-
-.leverClose .leverNumber {
-  font-size: clamp(1.85rem, 7.4vw, 4.6rem);
-  letter-spacing: -0.025em;
-  line-height: 1.02;
-}
-
-@media (min-width: 700px) {
-  .leverClose .leverAside {
-    display: grid;
-    gap: 0.3rem;
-    flex: 0 0 auto;
-    text-align: right;
-    font-size: clamp(0.7rem, 1vw, 0.82rem);
-    font-weight: 700;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    line-height: 1.35;
-    color: #1c1408;
-  }
-}
-
-.leverGhost {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-height: 50px;
-  padding: 0 1.05rem;
-  border: 1px solid var(--hairline-strong);
-  border-radius: var(--r-plate);
-  color: var(--enamel-mid);
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  transition: color var(--ease-state), border-color var(--ease-state), background var(--ease-state);
-}
-
-.leverGhost:hover {
-  color: var(--enamel);
-  border-color: var(--brass-rule);
-  background: rgba(185, 138, 60, 0.08);
-}
-
-/* ----------------------------------------------------------------------
-   The signal itself. Lower quadrant, Midland pattern: it sits at danger,
-   then pulls off. That single gesture is the page's authored motion.
-   ---------------------------------------------------------------------- */
-
-.signalCol {
-  display: none;
-}
-
-@media (min-width: 940px) {
-  .signalCol {
-    display: block;
-    min-width: 0;
-  }
-  .signal {
-    width: 168px;
-    height: 340px;
-  }
-}
-
-.signalArm {
-  transform-box: view-box;
-  transform-origin: 79px 108px;
-  animation: pullOff var(--ease-pull) 1.1s both;
-}
-
-@keyframes pullOff {
-  0% {
-    rotate: 0deg;
-  }
-  62% {
-    rotate: -47deg;
-  }
-  78% {
-    rotate: -42deg;
-  }
-  100% {
-    rotate: -45deg;
-  }
-}
-
-.signalGlassRed {
-  animation: glassOut 360ms 1.86s both;
-}
-
-.signalGlassGreen {
-  animation: glassIn 360ms 1.86s both;
-}
-
-@keyframes glassOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes glassIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.signalCaption {
-  margin-top: 0.7rem;
-  font-size: 0.66rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  text-align: center;
-  color: var(--enamel-dim);
-}
-
-.signalCaptionState {
-  display: block;
-  margin-top: 0.2rem;
-  color: var(--lamp-green-bright);
-  animation: glassIn 360ms 1.86s both;
-}
-
-/* ----------------------------------------------------------------------
-   Block indications: the three readings along the foot of the hero.
-   ---------------------------------------------------------------------- */
-
-.blockShelf {
-  display: grid;
-  gap: 0;
-  margin-top: clamp(1.6rem, 3.4vw, 2.4rem);
-  border-top: 1px solid var(--hairline);
-}
-
-@media (min-width: 720px) {
-  .blockShelf {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-.blockCell {
-  padding: 0.95rem 0 1rem;
-  border-bottom: 1px solid var(--hairline);
-  min-width: 0;
-}
-
-@media (min-width: 720px) {
-  .blockCell {
-    padding: 1rem clamp(1rem, 2.4vw, 1.9rem);
-    border-bottom: none;
-    border-left: 1px solid var(--hairline);
-  }
-  .blockCell:first-child {
-    padding-left: 0;
-    border-left: none;
-  }
-}
-
-.blockLabel {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--enamel-dim);
-}
-
-.blockNeedle {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--lamp-green);
-  box-shadow: 0 0 9px rgba(79, 219, 146, 0.75);
-  flex: none;
-}
-
-.blockValue {
-  margin-top: 0.45rem;
-  font-size: clamp(1.02rem, 2.4vw, 1.16rem);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--enamel);
-}
-
-.blockNote {
-  margin-top: 0.15rem;
-  font-size: 0.86rem;
-  color: var(--enamel-dim);
-}
-
-/* ----------------------------------------------------------------------
-   Sections
-   ---------------------------------------------------------------------- */
-
 .section {
-  position: relative;
+  border-top: 1px solid var(--hairline);
   padding-block: var(--section-pad);
-  border-bottom: 1px solid var(--hairline);
 }
 
 .sectionHead {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.sectionHead::after {
+  content: "";
+  display: block;
+  width: 2.75rem;
+  height: 2px;
+  margin-top: 1rem;
+  background: var(--copper);
+}
+
+.sectionBody {
+  margin-top: var(--block);
+}
+
+.lead {
   max-width: var(--measure);
+  color: var(--steel-mid);
+  font-size: clamp(1.02rem, 1.6vw, 1.16rem);
+  text-wrap: pretty;
 }
 
-.h2 {
-  font-size: clamp(1.7rem, 4vw, 2.55rem);
-  letter-spacing: -0.022em;
-  font-variation-settings: "wdth" 98;
-}
-
-.standfirst {
-  margin-top: 1rem;
-  max-width: 54ch;
-  color: var(--enamel-mid);
-  line-height: 1.6;
-}
-
-/* The frame itself. One continuous floor plate with five stocks standing at
-   frame pitch, each with its brass number plate bolted in front of it. The
-   descriptions read as rows underneath, keyed to the plates by number, so the
-   object stays an object instead of becoming five cards. */
-.frameObject {
-  margin-top: clamp(2.25rem, 5vw, 3.25rem);
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  /* Below the width where all five stocks fit, the frame runs off the edge.
-     The fade is the affordance that says so. */
-  -webkit-mask-image: linear-gradient(90deg, #000 0 86%, rgba(0, 0, 0, 0.15) 100%);
-  mask-image: linear-gradient(90deg, #000 0 86%, rgba(0, 0, 0, 0.15) 100%);
-}
-
-@media (min-width: 700px) {
-  .frameObject {
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
-}
-
-.frameObject svg {
-  width: 100%;
-  min-width: 560px;
-  height: auto;
-}
-
-.frameCaption {
-  margin-top: 1rem;
-  font-size: 0.86rem;
-  line-height: 1.55;
-  color: var(--enamel-dim);
-  max-width: 64ch;
-}
-
-.frameRows {
-  margin: clamp(2rem, 4vw, 2.75rem) 0 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid var(--hairline);
-}
-
-.frameRow {
-  display: grid;
-  grid-template-columns: 60px minmax(0, 1fr);
-  gap: 0.35rem clamp(0.9rem, 2.4vw, 1.5rem);
-  align-items: start;
-  padding: clamp(1rem, 2.4vw, 1.35rem) 0;
-  border-bottom: 1px solid var(--hairline);
-  transition: background var(--ease-state);
-}
-
-.frameRow:hover {
-  background: rgba(185, 138, 60, 0.05);
-}
-
-@media (min-width: 820px) {
-  .frameRow {
-    grid-template-columns: 60px minmax(0, 200px) minmax(0, 1fr);
-    align-items: baseline;
-    gap: clamp(1rem, 2.6vw, 2rem);
-  }
-}
-
-/* The brass number plate, engraved, with a spot of the stock's own paint. */
-.frameNo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  width: 60px;
-  height: 34px;
-  border-radius: var(--r-plate);
-  background:
-    linear-gradient(104deg, rgba(255, 255, 255, 0) 24%, rgba(255, 255, 255, 0.16) 36%, rgba(255, 255, 255, 0) 50%),
-    linear-gradient(180deg, #dcbd82 0%, #c19a57 52%, #a58240 100%);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
-  font-family: var(--font-plate);
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #1c1408;
-  font-variant-numeric: tabular-nums;
-}
-
-.frameNoPaint {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
-}
-
-.frameName {
-  grid-column: 2;
-  font-size: clamp(1.08rem, 2.4vw, 1.22rem);
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: var(--enamel);
-}
-
-.frameLine {
-  grid-column: 2;
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: var(--enamel-dim);
-  max-width: 58ch;
-}
-
-@media (min-width: 820px) {
-  .frameLine {
-    grid-column: 3;
-  }
-}
-
-.frameNote {
-  margin-top: 1.5rem;
-  padding-left: 0.9rem;
-  border-left: 1px solid var(--brass-rule);
-  font-size: 0.88rem;
-  line-height: 1.6;
-  color: var(--enamel-dim);
-  max-width: 62ch;
-}
-
-/* Two blocks: the roadside, and the workshop behind it. */
-.pair {
-  display: grid;
-  gap: clamp(1.25rem, 3vw, 1.75rem);
-  margin-top: clamp(2.5rem, 6vw, 3.5rem);
-}
-
-@media (min-width: 820px) {
-  .pair {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-.pairCell {
-  min-width: 0;
-  padding: clamp(1.5rem, 3.4vw, 2.25rem);
-  border-radius: var(--r-plate);
-  border: 1px solid var(--hairline);
-  background: linear-gradient(180deg, rgba(26, 30, 37, 0.72), rgba(14, 16, 20, 0.72));
-}
-
-.pairCellEnamel {
-  border-color: rgba(176, 70, 79, 0.5);
-  position: relative;
-  background:
-    linear-gradient(104deg, rgba(255, 255, 255, 0) 16%, rgba(255, 255, 255, 0.11) 30%, rgba(255, 255, 255, 0) 46%),
-    linear-gradient(178deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 40%),
-    linear-gradient(180deg, var(--maroon) 0%, var(--maroon-deep) 100%);
-}
-
-.pairLabel {
-  display: inline-flex;
-  align-items: center;
-  height: 27px;
-  padding: 0 0.72rem;
-  border-radius: var(--r-plate);
-  background:
-    linear-gradient(104deg, rgba(255, 255, 255, 0) 24%, rgba(255, 255, 255, 0.16) 36%, rgba(255, 255, 255, 0) 50%),
-    linear-gradient(180deg, #dcbd82 0%, #c19a57 52%, #a58240 100%);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.5) inset,
-    0 0 0 1px rgba(0, 0, 0, 0.4),
-    0 4px 10px -6px rgba(0, 0, 0, 0.8);
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.17em;
-  text-transform: uppercase;
-  color: #1c1408;
-}
-
-.pairBody {
-  margin-top: 0.85rem;
-  color: var(--enamel-mid);
-  line-height: 1.58;
-}
-
-.pairCellEnamel .pairBody {
-  color: rgba(244, 241, 234, 0.94);
-}
-
-.pairFoot {
-  margin-top: 1.4rem;
-  padding-top: 1.1rem;
-  border-top: 1px solid var(--hairline);
-  display: grid;
-  gap: 0.35rem;
+.footnote {
+  margin-top: 2rem;
+  color: var(--steel-dim);
   font-size: 0.92rem;
 }
 
-.pairCellEnamel .pairFoot {
-  border-top-color: rgba(244, 241, 234, 0.28);
+.textLink {
+  display: inline-block;
+  padding-block: 0.78rem;
+  margin-block: -0.78rem;
+  color: var(--copper);
+  text-decoration: underline;
+  text-decoration-color: rgba(193, 112, 58, 0.42);
+  transition: text-decoration-color var(--ease-state);
 }
 
-.pairFootLine {
-  color: var(--enamel-mid);
-}
-
-.pairCellEnamel .pairFootLine {
-  color: rgba(244, 241, 234, 0.88);
-}
-
-.pairLink {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  margin-block: -0.6rem;
-  color: var(--enamel);
-  font-weight: 600;
-  text-decoration-color: rgba(244, 241, 234, 0.45);
-}
-
-.pairLink:hover {
-  text-decoration-color: var(--enamel);
-}
-
-/* ----------------------------------------------------------------------
-   The twenty-four hour ring: the clock a signal box works to.
-   ---------------------------------------------------------------------- */
-
-.sectionLit {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
-
-.sectionLight {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background-image: url("/boxlight-close.svg");
-  background-size: cover;
-  background-position: center 62%;
-  opacity: 0.85;
-}
-
-.clockGrid {
-  display: grid;
-  gap: clamp(2rem, 5vw, 3.5rem);
-  align-items: center;
-  margin-top: clamp(2.25rem, 5vw, 3rem);
-}
-
-@media (min-width: 860px) {
-  .clockGrid {
-    grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
-  }
-}
-
-.ring {
-  position: relative;
-  width: min(320px, 78vw);
-  aspect-ratio: 1;
-  justify-self: center;
-  min-width: 0;
-}
-
-.ringFace {
-  position: absolute;
-  inset: 0;
-}
-
-.ringHub {
-  position: absolute;
-  inset: 22%;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 32%, rgba(41, 167, 101, 0.14), rgba(14, 16, 20, 0) 70%);
-}
-
-.ringNow {
-  font-family: var(--font-plate);
-  font-size: clamp(1.85rem, 6vw, 2.4rem);
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  font-variant-numeric: tabular-nums;
-  color: var(--enamel);
-}
-
-.ringNowLabel {
-  margin-top: 0.4rem;
-  font-size: 0.64rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--enamel-dim);
-}
-
-.ringState {
-  margin-top: 0.55rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--lamp-green-bright);
-}
-
-.clockCopy {
-  min-width: 0;
-}
-
-.clockList {
-  margin: 1.6rem 0 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 0.75rem;
-}
-
-.clockItem {
-  display: grid;
-  grid-template-columns: 22px minmax(0, 1fr);
-  gap: 0.85rem;
-  align-items: start;
-  font-size: 0.95rem;
-  color: var(--enamel-mid);
-}
-
-.clockTick {
-  margin-top: 0.42rem;
-  width: 22px;
-  height: 2px;
-  background: var(--brass);
-}
-
-/* ----------------------------------------------------------------------
-   Close
-   ---------------------------------------------------------------------- */
-
-.close {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  padding-block: clamp(5rem, 12vh, 8rem);
-  text-align: center;
-  background:
-    linear-gradient(178deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 42%),
-    linear-gradient(172deg, var(--maroon-light) 0%, var(--maroon) 38%, var(--maroon-deep) 100%);
-  border-top: 1px solid var(--maroon-edge);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.55);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.14) inset;
-}
-
-/* The keyline, exactly as it runs round the running-in board upstairs. */
-.close::before {
-  content: "";
-  position: absolute;
-  inset: clamp(10px, 1.8vw, 20px);
-  border: 2px solid rgba(244, 241, 234, 0.82);
-  border-radius: 3px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.closeHead {
-  position: relative;
-  z-index: 1;
-  font-size: clamp(1.4rem, 3.2vw, 2rem);
-  letter-spacing: -0.018em;
-  font-variation-settings: "wdth" 100;
-  color: rgba(244, 241, 234, 0.94);
-}
-
-.close .lever {
-  position: relative;
-  z-index: 1;
-}
-
-/* ----------------------------------------------------------------------
-   Footer
-   ---------------------------------------------------------------------- */
-
-.foot {
-  padding-block: 2.5rem 6.5rem;
-  font-size: 0.85rem;
-  color: var(--enamel-dim);
-}
-
-@media (min-width: 720px) {
-  .foot {
-    padding-bottom: 2.75rem;
-  }
-}
-
-.footGrid {
-  display: grid;
-  gap: 0.9rem;
-}
-
-@media (min-width: 720px) {
-  .footGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: end;
-  }
-}
-
-.footName {
-  color: var(--enamel-mid);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.footRight {
-  display: grid;
-  gap: 0.35rem;
-}
-
-.footRight a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  margin-block: -0.65rem;
-}
-
-@media (min-width: 720px) {
-  .footRight {
-    justify-items: end;
-    text-align: right;
-  }
-}
-
-/* ----------------------------------------------------------------------
-   The mobile call bar: the catch handle sits under the thumb.
-   ---------------------------------------------------------------------- */
-
-.callBar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 50;
-  padding: 0.6rem var(--gutter) calc(0.6rem + env(safe-area-inset-bottom));
-  background: linear-gradient(180deg, rgba(14, 16, 20, 0.72), rgba(9, 10, 13, 0.97));
-  backdrop-filter: blur(10px);
-  border-top: 1px solid var(--hairline);
-}
-
-.callBar .lever {
-  display: flex;
-  width: 100%;
-}
-
-.callBar .leverStock {
-  width: 23px;
-  margin-right: -4px;
-}
-
-.callBar .leverPlate {
-  flex: 1;
-  min-height: 54px;
-  padding: 0.45rem 1rem 0.5rem 1.15rem;
-}
-
-.callBar .leverNumber {
-  font-size: 1.14rem;
-}
-
-.callBar .leverPlate::before {
-  left: 6px;
-}
-
-.callBar .leverPlate::after {
-  right: 7px;
-}
-
-@media (min-width: 720px) {
-  .callBar {
-    display: none;
-  }
+.textLink:hover {
+  text-decoration-color: var(--copper);
 }
 
 .visuallyHidden {
@@ -1399,23 +255,556 @@ svg {
   border: 0;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+/* --- Buttons ------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.95rem 1.6rem;
+  border: 1px solid transparent;
+  border-radius: var(--r-button);
+  font: inherit;
+  font-weight: 650;
+  font-size: 0.95rem;
+  font-stretch: 108%;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--ease-state),
+    border-color var(--ease-state),
+    color var(--ease-state),
+    transform var(--ease-state);
+}
+
+.btnPrimary {
+  background: var(--copper);
+  color: var(--copper-ink);
+  box-shadow: 0 12px 30px -14px rgba(224, 139, 79, 0.55);
+}
+
+.btnPrimary:hover {
+  background: var(--copper-bright);
+  transform: translateY(-1px);
+}
+
+.btnPrimary:active {
+  background: var(--copper-deep);
+  color: var(--workshop-white);
+  transform: translateY(1px);
+}
+
+.btnGhost {
+  border-color: var(--hairline-strong);
+  color: var(--workshop-white);
+}
+
+.btnGhost:hover {
+  border-color: var(--copper);
+  color: var(--copper);
+  transform: translateY(-1px);
+}
+
+.btnGhost:active {
+  border-color: var(--copper);
+  background: rgba(193, 112, 58, 0.16);
+  color: var(--copper-bright);
+  transform: translateY(1px);
+}
+
+.btnSmall {
+  padding: 0.68rem 1.05rem;
+  font-size: 0.85rem;
+}
+
+/* --- Topbar -------------------------------------------------------------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--hairline);
+  background: rgba(16, 14, 12, 0.84);
+  backdrop-filter: blur(10px);
+}
+
+.topbarInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 64px;
+}
+
+.brandMark {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 650;
+  font-size: 0.95rem;
+  font-stretch: 118%;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* --- Hero ---------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 92svh;
+  overflow: hidden;
+  padding-block: clamp(3.5rem, 9vh, 6rem) 0;
+}
+
+/*
+  The work light. This is the hero image: there is no photograph of this
+  business and none may be invented, so the driveway is lit rather than shot,
+  as a produced asset (public/worklamp.svg) with authored five-part falloff
+  and its grain baked in, not a stack of flat CSS ramps.
+*/
+.heroLight {
+  position: absolute;
+  inset: -12% -6% -6%;
+  z-index: -1;
+  background: url("/worklamp.svg") 70% 58% / cover no-repeat;
+  pointer-events: none;
+}
+
+.heroInner {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.heroGrid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+/*
+  Grid children default to min-width: auto, so the longest word in the lockup
+  was setting the container's floor and pushing the first viewport wider than
+  the phone. The hero clips overflow, so it read as a cropped headline rather
+  than as a scrollbar.
+*/
+.heroGrid > * {
+  min-width: 0;
+}
+
+.heroName {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(2.1rem, 8vw, 5.8rem);
+  font-stretch: 128%;
+  letter-spacing: -0.012em;
+  line-height: 0.98;
+}
+
+.heroSub {
+  margin-top: 1.5rem;
+  color: var(--copper);
+  font-size: 0.9rem;
+  font-weight: 650;
+  font-stretch: 112%;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.heroTagline {
+  max-width: 46ch;
+  margin-top: 1.15rem;
+  color: var(--steel-mid);
+  font-size: clamp(1.05rem, 2vw, 1.28rem);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2.25rem;
+}
+
+/*
+  Where the photographed siblings run a full-bleed photo of the owner's own
+  work, this business has three checkable facts and no photograph. The band
+  sits directly over the low end of the lamp's throw, so it carries a
+  near-opaque ground of its own: left translucent, one cell would read on lit
+  ground and another on near-black.
+*/
+.credBand {
+  border-top: 1px solid var(--hairline);
+  background: rgba(13, 11, 9, 0.9);
+}
+
+.credBandInner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.credCell {
+  padding: 1.1rem 0 1.25rem;
+}
+
+.credCell + .credCell {
+  padding-left: clamp(0.85rem, 2.2vw, 1.75rem);
+  border-left: 1px solid var(--hairline);
+}
+
+.credLabel {
+  color: var(--steel-dim);
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.credValue {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.45rem;
+  font-size: clamp(0.98rem, 1.7vw, 1.2rem);
+  font-weight: 650;
+  font-stretch: 112%;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.15;
+}
+
+.credNote {
+  margin-top: 0.3rem;
+  color: var(--steel-dim);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+/* --- Services -------------------------------------------------------------
+   Five items, not sixteen: a short generic list the client approved rather
+   than a scraped index, so it runs as plain stacked entries, not a grid of
+   same-size cards. */
+
+.serviceList {
+  display: grid;
+  gap: 0;
+}
+
+.lead + .serviceList,
+.lead + .splitGrid {
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+}
+
+.serviceItem {
+  display: grid;
+  gap: 0.35rem clamp(1.5rem, 4vw, 3rem);
+  grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+  align-items: baseline;
+  padding-block: 1.35rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.serviceItem:first-child {
+  padding-top: 0;
+}
+
+.serviceTitle {
+  font-size: 1.05rem;
+  font-stretch: 112%;
+  letter-spacing: 0.02em;
+}
+
+.serviceBody {
+  color: var(--steel-mid);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+/* --- The van and the workshop ---------------------------------------------
+   Two blocks, not two cards: this is one fact with two halves, so they sit in
+   a hairline-divided pair rather than in bordered panels. */
+
+.splitGrid {
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--hairline);
+}
+
+.splitCell {
+  padding: 1.6rem 0 0;
+}
+
+.splitCell + .splitCell {
+  padding-left: clamp(1.25rem, 3vw, 2.5rem);
+  border-left: 1px solid var(--hairline);
+}
+
+.splitLabel {
+  color: var(--copper);
+  font-size: 0.72rem;
+  font-weight: 650;
+  font-stretch: 110%;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.splitBody {
+  max-width: 42ch;
+  margin-top: 0.85rem;
+  color: var(--steel-mid);
+  line-height: 1.58;
+  text-wrap: pretty;
+}
+
+/* --- Contact ------------------------------------------------------------- */
+
+.locationGrid {
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns:
+    minmax(0, 1fr) minmax(0, 0.85fr) minmax(0, 1.35fr) minmax(0, 1fr);
+  margin-top: 2.5rem;
+}
+
+.locationCell dt {
+  color: var(--steel-dim);
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.locationCell dd {
+  margin-top: 0.6rem;
+  color: var(--steel-mid);
+  line-height: 1.5;
+}
+
+.locationStrong {
+  display: block;
+  padding-block: 0.62rem;
+  margin-block: -0.62rem;
+  color: var(--workshop-white);
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  font-weight: 650;
+  font-stretch: 110%;
+  font-variant-numeric: tabular-nums;
+  text-decoration: none;
+}
+
+a.locationStrong:hover {
+  color: var(--copper);
+}
+
+.locationNote {
+  display: block;
+  margin-top: 0.9rem;
+  color: var(--steel-dim);
+  font-size: 0.85rem;
+}
+
+/* --- Closing call -------------------------------------------------------- */
+
+.booking {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-top: 1px solid var(--hairline);
+  padding-block: clamp(5rem, 12vh, 8rem);
+  text-align: center;
+}
+
+.bookingLight {
+  position: absolute;
+  inset: -20% -6%;
+  z-index: -1;
+  background: url("/worklamp-close.svg") center / cover no-repeat;
+  pointer-events: none;
+}
+
+.bookingLead {
+  max-width: 44ch;
+  margin: 1.75rem auto 0;
+  color: var(--steel-mid);
+  font-size: clamp(1.05rem, 2vw, 1.24rem);
+  text-wrap: pretty;
+}
+
+.bookingPhone {
+  display: inline-block;
+  margin-top: 2.25rem;
+  color: var(--copper);
+  font-size: clamp(2rem, 7vw, 3.6rem);
+  font-weight: 650;
+  font-stretch: 122%;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: color var(--ease-state);
+}
+
+.bookingPhone:hover {
+  color: var(--copper-bright);
+}
+
+.bookingHours {
+  margin-top: 1rem;
+  color: var(--steel-dim);
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+}
+
+.booking .sectionHead::after {
+  margin-inline: auto;
+}
+
+/* --- Footer -------------------------------------------------------------- */
+
+.footer {
+  border-top: 1px solid var(--hairline);
+  padding-block: 2.5rem 3.25rem;
+  color: var(--steel-dim);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* --- The one authored moment ----------------------------------------------
+   The lamp comes up, then the lockup settles under it. One orchestrated
+   entrance on the first viewport only; nothing else on the page animates in. */
+
+@media (prefers-reduced-motion: no-preference) {
+  .heroLight {
+    animation: lampUp 1400ms var(--ease-settle) both;
   }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-delay: 0ms !important;
-    transition-duration: 0.001ms !important;
+
+  .rise {
+    animation: rise 900ms var(--ease-settle) both;
   }
-  .lever:hover,
-  .lever:active {
+
+  .rise-1 {
+    animation-delay: 120ms;
+  }
+  .rise-2 {
+    animation-delay: 220ms;
+  }
+  .rise-3 {
+    animation-delay: 320ms;
+  }
+  .rise-4 {
+    animation-delay: 420ms;
+  }
+}
+
+@keyframes lampUp {
+  from {
+    opacity: 0.35;
+    filter: brightness(0.5);
+  }
+  to {
+    opacity: 1;
+    filter: brightness(1);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
     transform: none;
   }
-  .lever:hover .stockSwing,
-  .lever:active .stockSwing {
-    rotate: 0deg;
+}
+
+/* --- Responsive ------------------------------------------------------------ */
+
+@media (max-width: 1080px) {
+  .reviewColumns {
+    grid-template-columns: 1fr;
+  }
+
+  .locationGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --block: 2.25rem;
+  }
+
+  .splitGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .splitCell + .splitCell {
+    padding-left: 0;
+    padding-top: 1.6rem;
+    border-left: 0;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .hero {
+    min-height: 86svh;
+    padding-top: 1.25rem;
+  }
+
+  .heroName {
+    font-stretch: 110%;
+    letter-spacing: -0.005em;
+  }
+
+  .heroTagline {
+    max-width: none;
+  }
+
+  /* The landscape asset puts the lamp at 70% across a 16:10 frame; a phone
+     gets the light re-authored in its own aspect instead of the wide one
+     nudged with background-position. */
+  .heroLight {
+    inset: -6% -6% -4%;
+    background-image: url("/worklamp-portrait.svg");
+    background-position: center;
+  }
+
+  .credBandInner {
+    grid-template-columns: 1fr;
+  }
+
+  .credCell + .credCell {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .serviceItem {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .locationGrid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .heroName {
+    font-stretch: 100%;
+  }
+
+  .heroActions .btn {
+    flex: 1 1 100%;
   }
 }

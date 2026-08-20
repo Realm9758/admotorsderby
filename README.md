@@ -42,29 +42,30 @@ at, and each is a question for the client.
 
 ## The design
 
-The world is the signal box, from the town the Midland Railway built. Derby made
-the railway that ran to the minute through the night, and signalling is the one
-trade whose whole point is that somebody is awake at three in the morning.
+The house dark-professional canon, the same system the sibling trade sites run:
+graphite ground, hairline rules as the only structural device, one rationed
+chromatic accent, wide-stretched Archivo caps against plain sentence-case body,
+flat depth. The accent is the whole of the divergence between the siblings, and
+this one is copper: a mechanic's warm metal rather than a signal colour.
 
-- The name is a vitreous enamel running-in board, with a 24/7 target disc hung
-  under its right end.
-- The primary action is a painted catch handle bolted to a plate, because that
-  is the object a signalman actually pulls.
-- The semaphore arm starts at danger and pulls off to clear. That single gesture
-  is the page's authored motion, and it is disabled under reduced motion.
-- The five services are a lever frame, painted to the real frame convention:
-  red for a stop signal, yellow for a distant, black for points, blue for a
-  facing point lock, green for a release.
-- The clock is a twenty four hour ring with every hour lit, because the profile
-  says open 24 hours.
+No photograph of this business exists and stock imagery was refused, so the
+first viewport is lit rather than shot. `public/worklamp.svg` is a produced
+asset built in five named parts, a pool of light lying on the ground, the
+contact shadow under it, the hot head where the fitting sits, the throw running
+up and across, and a weaker second source falling from the far side, with grain
+baked in. `worklamp-portrait.svg` re-authors it in a phone's own aspect rather
+than nudging the wide one with background-position, and `worklamp-close.svg`
+centres it behind the closing number.
 
-No photograph of this business exists, so the night is lit rather than shot.
-`public/boxlight.svg`, `boxlight-portrait.svg` and `boxlight-close.svg` build a
-signal box window spilling onto ballast out of five named parts: a pool squashed
-low, a contact ramp under it, a hot head where the window stands, a throw wedge
-masked to die before the top, and a weak second source. Three assets rather than
-one, because a landscape pool cover cropped into a phone frame falls off the
-edge.
+There is no review section, because the profile publishes no rating and no
+reviews. There is no price, no coverage radius and no credential list, for the
+same reason. What stands in their place along the foot of the first viewport is
+three facts that can be checked: the hours, the callout, and the workshop.
+
+An earlier build of this site used a Midland Railway signal box as its visual
+world. The client saw it and asked for something more professional, so the
+world was replaced rather than polished. The record of that decision is in
+`.impeccable/direction-roll.md`.
 
 The full direction contract is an HTML comment at the top of the rendered body.
 

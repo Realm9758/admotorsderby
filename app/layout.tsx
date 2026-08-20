@@ -1,21 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Martian_Mono } from "next/font/google";
+import { Archivo } from "next/font/google";
 import { contact, identity, meta, workshop } from "@/content/site";
 import "./globals.css";
 
-/* The signage voice. Archivo's width axis is what lets a heading stretch to
-   enamel-board proportions without a second display face. */
+/* The house voice across every sibling site. The width axis is what lets the
+   lockup stretch to signage proportions without a second display face. */
 const archivo = Archivo({
   subsets: ["latin"],
   axes: ["wdth"],
   variable: "--font-archivo",
-});
-
-/* The instrument voice. Used only where the page is reporting a measurement:
-   lever numbers, hours on the ring, plate labels. Never as body copy. */
-const martian = Martian_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
 });
 
 const SITE_URL = "https://admotorsderby.vercel.app";
@@ -29,29 +22,29 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
     url: SITE_URL,
-    siteName: identity.legalName,
+    siteName: identity.name,
     title: meta.title,
     description: meta.description,
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0e1014",
+  themeColor: "#100e0c",
 };
 
 const contract = `<!--
-THESIS: A mobile mechanic's page whose one idea is that the line is never closed. It refuses the category's stock arrangement, a photograph of a smiling man in hi-vis beside an open bonnet under a red CALL NOW band, and builds the page instead out of the object Derby gave the world: the signal box, where somebody has always been awake at three in the morning.
-OWN-WORLD: Night iron ground lit by one signal box window. Midland maroon enamel carrying whole regions, never an accent: the running-in board, the target disc, the workshop block, the close. Enamel is rendered as fired glass, with a specular sweep, a speckled glaze and chipped edges at the bolt holes. Brass for every description plate and rule, engraved dark. Two lamp glasses, signal red for the state the visitor is in and lamp green for what happens when they ring, plus one authorised exception: the lever frame is painted to the real British frame code (red stop, yellow distant, black points, blue facing point lock, green release), which is the frame's own grammar and appears on the stocks alone. Archivo stretched to board proportions against Martian Mono used only for measurements.
-STORY: A driver standing beside a car that will not start reads the board, sees a signal pull off to clear, learns in three readings that it is open 24 hours, that he comes to the car and that a real Cameron Road workshop stands behind it, scans five levers for the job he thinks he has, and rings.
-FIRST VIEWPORT: A full-bleed enamel running-in board across the container with a 24/7 target disc hung under its right end, the headline and standfirst beneath at left, and the primary action built as the lever itself: a red painted stock on its fulcrum with a catch handle down its front face, the number engraved on the brass description plate bolted in front of it, and a press that swings the stock through its catch. At right a lower quadrant semaphore whose arm drops to clear, its spectacle casting rigid with the arm so the red glass swings out of the lamp and the green swings in. A three-cell block shelf along the foot. The same lever runs the width of the closing enamel plate at board scale, carrying the number as the largest type on the page, and a sticky one holds it under the thumb on phones.
-FORM: Signal Box, candidate 4 of 7 on the grounded list, assigned by the roll and taken by the user over three challengers and the standing canon on 20 August 2026. Seed key b2769508.
+THESIS: A mobile mechanic's page whose whole argument is checkable, and whose only job is to make one phone call happen. It refuses the category's stock arrangement, a stock photograph of a smiling man in hi-vis beside an open bonnet under a red CALL NOW band, and it refuses the expressive alternative too: the client saw a fully built signal box world and asked for something more professional, so convention is the commitment here, executed at full fidelity.
+OWN-WORLD: Graphite ground, hairline rules as the only structural device, one rationed copper accent on the call action, the sub-line, the section rules and the closing number. Wide-stretched Archivo caps against plain sentence-case body. Flat depth: no shadowed panels anywhere except the accent glow under the primary button. Copper because this is a mechanic and warm metal reads as the tooling, not as a hazard.
+STORY: A driver standing beside a car that will not start reads the trading name, learns in three checkable facts that it is open 24 hours, that he comes to the car and that a real Cameron Road workshop stands behind it, scans five things a callout covers, and rings.
+FIRST VIEWPORT: 92svh of graphite lit by one work light stood low and right, as a produced asset rather than a stack of CSS ramps. Two-line name lockup at left, copper sub-line, tagline, filled copper call button and a ghost button to the services. A three-cell hairline fact band pinned along the foot carrying hours, callout and workshop. The lamp comes up and the lockup settles under it: one orchestrated entrance, nothing else on the page animates in.
+FORM: The category standard, the standing exit, taken by the user on 20 August 2026 after seeing and rejecting the rolled Signal Box direction. Seed key b2769508, assigned index 4, superseded by the user's instruction. Craft bar: the user's own showroomdetailing and CJValeting builds, plus mobilemechanichull for the no-photography lit hero. Accent: copper, chosen by the user.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
 -->`;
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AutoRepair",
-  name: identity.legalName,
+  name: identity.name,
   url: SITE_URL,
   description:
     "Mobile mechanic in Derby, open 24 hours. Diagnostics, breakdowns, servicing, brakes and batteries, done where the car is standing.",
@@ -96,7 +89,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-GB" className={`${archivo.variable} ${martian.variable}`}>
+    <html lang="en-GB" className={archivo.variable}>
       <body>
         <span hidden dangerouslySetInnerHTML={{ __html: contract }} />
         <script

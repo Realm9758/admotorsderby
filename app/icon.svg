@@ -1,8 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- The letter is drawn as a path, not set as live text: an SVG favicon gets
+       no webfont, so <text> would ship in whatever sans the platform has. -->
   <rect width="64" height="64" rx="10" fill="#100e0c"/>
-  <rect x="4.5" y="4.5" width="55" height="55" rx="8" fill="none" stroke="#2a231c" stroke-width="1.5"/>
-  <text x="32" y="35" text-anchor="middle" dominant-baseline="central"
-        font-family="Archivo, Helvetica Neue, Arial, sans-serif" font-size="26" font-weight="700"
-        letter-spacing="-0.5" fill="#f4f2ef">AD</text>
-  <rect x="18" y="45" width="28" height="3" rx="1.5" fill="#c1703a"/>
+  <rect x="4" y="4" width="56" height="56" rx="7" fill="none" stroke="#c1703a" stroke-width="2"/>
+  <path fill-rule="evenodd" fill="#c1703a"
+        d="M16 46 L28.6 18 H35.4 L48 46 H41.2 L38.9 39.4 H25.1 L22.8 46 Z
+           M27.6 33.6 L32 23.5 L36.4 33.6 Z"/>
 </svg>

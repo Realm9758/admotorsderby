@@ -67,14 +67,14 @@ export const workshop = {
 export const hero = {
   nameLines: ["AD Motors", "Mobile Services"] as const,
   /* [google] the trading name carries 24/7, so the sub-line is the fact */
-  subLine: "Mobile mechanic · Derby · Open\u00a024\u00a0hours",
+  subLine: "Mobile mechanic in Derby, open\u00a024\u00a0hours",
   tagline:
     "He comes to the car, wherever it has stopped. Driveway, work car park, supermarket bay or kerb, with a real Derby workshop behind him when a job needs a ramp.",
   callCta: "Call 07751 914650",
   secondaryCta: "What a callout covers",
   /* every cell below is a published fact, not a claim about speed or price */
   credentials: [
-    { label: "Hours", value: "Open 24 hours", note: "Every day, all year" },
+    { label: "Hours", value: "Open 24 hours", note: "Every day" },
     { label: "Callout", value: "He comes to the car", note: "Driveway, car park, kerb" },
     { label: "Workshop", value: "Cameron Road, Derby", note: "AD Motors Limited behind it" },
   ],

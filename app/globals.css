@@ -375,7 +375,7 @@ section[id] {
   position: absolute;
   inset: -12% -6% -6%;
   z-index: -1;
-  background: url("/worklamp.svg") 70% 58% / cover no-repeat;
+  background: url("/worklamp.svg") 70% 42% / cover no-repeat;
   pointer-events: none;
 }
 
@@ -445,7 +445,8 @@ section[id] {
 */
 .credBand {
   border-top: 1px solid var(--hairline);
-  background: rgba(13, 11, 9, 0.9);
+  background: rgba(13, 11, 9, 0.72);
+  backdrop-filter: blur(2px);
 }
 
 .credBandInner {
@@ -550,7 +551,7 @@ section[id] {
 }
 
 .splitLabel {
-  color: var(--copper);
+  color: var(--steel-dim);
   font-size: 0.72rem;
   font-weight: 650;
   font-stretch: 110%;
@@ -688,20 +689,20 @@ a.locationStrong:hover {
   }
 
   .rise {
-    animation: rise 900ms var(--ease-settle) both;
+    animation: rise 700ms var(--ease-settle) both;
   }
 
   .rise-1 {
-    animation-delay: 120ms;
+    animation-delay: 0ms;
   }
   .rise-2 {
-    animation-delay: 220ms;
+    animation-delay: 50ms;
   }
   .rise-3 {
-    animation-delay: 320ms;
+    animation-delay: 100ms;
   }
   .rise-4 {
-    animation-delay: 420ms;
+    animation-delay: 140ms;
   }
 }
 
@@ -716,13 +717,13 @@ a.locationStrong:hover {
   }
 }
 
+/* Settles from an already-visible default: the number is readable from the
+   first painted frame, which the product principles require. */
 @keyframes rise {
   from {
-    opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(12px);
   }
   to {
-    opacity: 1;
     transform: none;
   }
 }
@@ -730,9 +731,6 @@ a.locationStrong:hover {
 /* --- Responsive ------------------------------------------------------------ */
 
 @media (max-width: 1080px) {
-  .reviewColumns {
-    grid-template-columns: 1fr;
-  }
 
   .locationGrid {
     grid-template-columns: repeat(2, 1fr);
@@ -773,9 +771,9 @@ a.locationStrong:hover {
      gets the light re-authored in its own aspect instead of the wide one
      nudged with background-position. */
   .heroLight {
-    inset: -6% -6% -4%;
+    inset: -4% -10% -2%;
     background-image: url("/worklamp-portrait.svg");
-    background-position: center;
+    background-position: center 46%;
   }
 
   .credBandInner {

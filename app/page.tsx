@@ -57,15 +57,15 @@ export default function Page() {
             facts stand there instead, each repeated in full further down.
           */}
           <div className="credBand rise rise-4">
-            <div className="container credBandInner">
+            <dl className="container credBandInner">
               {hero.credentials.map((cell) => (
                 <div className="credCell" key={cell.label}>
-                  <p className="credLabel">{cell.label}</p>
-                  <p className="credValue">{cell.value}</p>
-                  <p className="credNote">{cell.note}</p>
+                  <dt className="credLabel">{cell.label}</dt>
+                  <dd className="credValue">{cell.value}</dd>
+                  <dd className="credNote">{cell.note}</dd>
                 </div>
               ))}
-            </div>
+            </dl>
           </div>
         </section>
 
@@ -92,14 +92,14 @@ export default function Page() {
             <h2 className="sectionHead">{workshopSection.heading}</h2>
             <div className="sectionBody">
               <p className="lead">{workshopSection.lead}</p>
-              <div className="splitGrid">
+              <dl className="splitGrid">
                 {workshopSection.cells.map((cell) => (
                   <div className="splitCell" key={cell.label}>
-                    <p className="splitLabel">{cell.label}</p>
-                    <p className="splitBody">{cell.body}</p>
+                    <dt className="splitLabel">{cell.label}</dt>
+                    <dd className="splitBody">{cell.body}</dd>
                   </div>
                 ))}
-              </div>
+              </dl>
               <p className="footnote">
                 {workshop.name}, {contact.addressLine}.{" "}
                 <a className="textLink" href={workshop.siteHref} rel="noopener">

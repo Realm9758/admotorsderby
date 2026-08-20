@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-20T00:00:00Z",
+  "title": "Design System: AD Motors Mobile Services 24/7",
+  "extensions": {
+    "colorMeta": {
+      "copper": {
+        "role": "primary",
+        "displayName": "Copper",
+        "canonical": "#c1703a",
+        "tonalRamp": ["#2a1408", "#472312", "#65331b", "#8f4f24", "#c1703a", "#e08b4f", "#efb98d", "#f8e2d1"]
+      },
+      "copper-bright": {
+        "role": "primary",
+        "displayName": "Copper Bright",
+        "canonical": "#e08b4f",
+        "tonalRamp": ["#301708", "#4f2711", "#70381a", "#9c4f26", "#c96a37", "#e08b4f", "#f0b487", "#faddc8"]
+      },
+      "copper-deep": {
+        "role": "primary",
+        "displayName": "Copper Deep",
+        "canonical": "#8f4f24",
+        "tonalRamp": ["#251206", "#3d1e0c", "#573014", "#73401c", "#8f4f24", "#b26838", "#d79b6d", "#efd0b6"]
+      },
+      "copper-ink": {
+        "role": "primary",
+        "displayName": "Copper Ink",
+        "canonical": "#190f05",
+        "tonalRamp": ["#0b0602", "#190f05", "#2b1a0a", "#402710", "#573617", "#77501f", "#a9803f", "#dcc0a0"]
+      },
+      "graphite-ground": {
+        "role": "neutral",
+        "displayName": "Graphite Ground",
+        "canonical": "#100e0c",
+        "tonalRamp": ["#0a0908", "#100e0c", "#1d1a16", "#2d2822", "#443d34", "#6b6156", "#a29688", "#ddd6cc"]
+      },
+      "workshop-white": {
+        "role": "neutral",
+        "displayName": "Workshop White",
+        "canonical": "#f4f2ef",
+        "tonalRamp": ["#232120", "#3a3835", "#54514d", "#726e69", "#948f89", "#b6b1aa", "#d6d2cc", "#f4f2ef"]
+      },
+      "steel-mid": {
+        "role": "neutral",
+        "displayName": "Steel Mid",
+        "canonical": "#c4bdb4",
+        "tonalRamp": ["#1e1c19", "#332f2b", "#4b4640", "#666057", "#847d73", "#a49c92", "#c4bdb4", "#e6e1db"]
+      },
+      "steel-dim": {
+        "role": "neutral",
+        "displayName": "Steel Dim",
+        "canonical": "#9a9188",
+        "tonalRamp": ["#1a1815", "#2e2b27", "#45403a", "#5e584f", "#7a7268", "#9a9188", "#bcb4ab", "#e0dad3"]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(244, 242, 239, 0.12)",
+        "tonalRamp": ["rgba(244,242,239,0.04)", "rgba(244,242,239,0.08)", "rgba(244,242,239,0.12)", "rgba(244,242,239,0.16)", "rgba(244,242,239,0.22)", "rgba(244,242,239,0.32)", "rgba(244,242,239,0.5)", "rgba(244,242,239,0.8)"]
+      },
+      "hairline-strong": {
+        "role": "neutral",
+        "displayName": "Hairline Strong",
+        "canonical": "rgba(244, 242, 239, 0.22)",
+        "tonalRamp": ["rgba(244,242,239,0.06)", "rgba(244,242,239,0.1)", "rgba(244,242,239,0.16)", "rgba(244,242,239,0.22)", "rgba(244,242,239,0.3)", "rgba(244,242,239,0.42)", "rgba(244,242,239,0.6)", "rgba(244,242,239,0.85)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The trading name only, set in three fixed nowrap lines. Archivo width axis at 128%, stepping to 110% at 720px and 100% at 420px." },
+      "number": { "displayName": "Closing Number", "purpose": "The closing phone number in copper, tabular figures. The only display-scale element outside the hero." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings, uppercase, each followed by a 2.75rem copper rule." },
+      "title": { "displayName": "Title", "purpose": "Service names in the left column of the service list." },
+      "body": { "displayName": "Body", "purpose": "Leads and paragraphs in sentence case, Steel Mid, capped at 68ch." },
+      "label": { "displayName": "Label", "purpose": "Tracked uppercase terms in Steel Dim: fact-band labels, split-cell labels, contact field terms. Never copper." },
+      "buttonLabel": { "displayName": "Button Label", "purpose": "Uppercase button text, width axis 108%." }
+    },
+    "shadows": [
+      {
+        "name": "accent-glow",
+        "value": "0 12px 30px -14px rgba(224, 139, 79, 0.55)",
+        "purpose": "The only shadow in the build. Sits under the filled copper call button so it reads as the button's own light. Never applied to anything else; the system is otherwise flat."
+      }
+    ],
+    "motion": [
+      { "name": "ease-state", "value": "150ms ease-out", "purpose": "Every hover, focus and press transition: background, border, colour, transform." },
+      { "name": "ease-settle", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Entrance easing for the lamp and the lockup." },
+      { "name": "lampUp", "value": "@keyframes lampUp { from { opacity: 0.35; filter: brightness(0.5); } to { opacity: 1; filter: brightness(1); } } / 1400ms", "purpose": "The work light comes up behind the first viewport. The only element in the build permitted to animate opacity, because it is light, not text." },
+      { "name": "rise", "value": "@keyframes rise { from { transform: translateY(12px); } to { transform: none; } } / 700ms", "purpose": "The lockup settles under the lamp from an already-visible default. It deliberately does not touch opacity: the sibling sites fade content in from zero, this one may not, because no motion may delay the phone number." },
+      { "name": "rise-delays", "value": "0ms / 50ms / 100ms / 140ms", "purpose": "Stagger across name, sub-line and tagline, actions, fact band. Nothing else on the page animates in." },
+      { "name": "reduced-motion", "value": "@media (prefers-reduced-motion: reduce)", "purpose": "Drops smooth scrolling and all button transitions and transforms; the entrance animations are only declared inside prefers-reduced-motion: no-preference, so they never run." }
+    ],
+    "breakpoints": [
+      { "name": "wide", "value": "1080px" },
+      { "name": "phone", "value": "720px" },
+      { "name": "narrow", "value": "420px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Call Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The filled copper call action. Appears in the topbar (small), the hero, and nowhere it is not a phone call.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"tel:+447751914650\">Call 07751 914650</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; padding: 0.95rem 1.6rem; border: 1px solid transparent; border-radius: 3px; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 650; font-size: 0.95rem; font-stretch: 108%; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out, transform 150ms ease-out; } .ds-btn-primary { background: #c1703a; color: #190f05; box-shadow: 0 12px 30px -14px rgba(224, 139, 79, 0.55); } .ds-btn-primary:hover { background: #e08b4f; transform: translateY(-1px); } .ds-btn-primary:active { background: #8f4f24; color: #f4f2ef; transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 2px solid #c1703a; outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "The secondary action beside the call button. Hairline border, no fill; it turns copper on hover rather than filling.",
+      "html": "<a class=\"ds-btn ds-btn-ghost\" href=\"#services\">What a callout covers</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; padding: 0.95rem 1.6rem; border: 1px solid transparent; border-radius: 3px; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 650; font-size: 0.95rem; font-stretch: 108%; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out, transform 150ms ease-out; } .ds-btn-ghost { border-color: rgba(244, 242, 239, 0.22); color: #f4f2ef; } .ds-btn-ghost:hover { border-color: #c1703a; color: #c1703a; transform: translateY(-1px); } .ds-btn-ghost:active { border-color: #c1703a; background: rgba(193, 112, 58, 0.16); color: #e08b4f; transform: translateY(1px); } .ds-btn-ghost:focus-visible { outline: 2px solid #c1703a; outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Section Head",
+      "kind": "custom",
+      "description": "Every section opens the same way: an uppercase width-stretched heading with a 2.75rem copper rule under it. The rule centres itself in the closing section and is left-aligned everywhere else.",
+      "html": "<h2 class=\"ds-section-head\">What a callout covers</h2>",
+      "css": ".ds-section-head { margin: 0; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 650; font-stretch: 120%; line-height: 1.1; letter-spacing: 0.01em; text-transform: uppercase; color: #f4f2ef; text-wrap: balance; } .ds-section-head::after { content: \"\"; display: block; width: 2.75rem; height: 2px; margin-top: 1rem; background: #c1703a; }"
+    },
+    {
+      "name": "Fact Band Cell",
+      "kind": "card",
+      "refersTo": "fact-cell",
+      "description": "One cell of the three-cell hairline band pinned along the foot of the first viewport, where the photographed sibling sites put a photo. Label, tabular value, note. Its near-opaque ground is required so every cell reads at the same contrast over the lamp's throw.",
+      "html": "<dl class=\"ds-cred-band\"><div class=\"ds-cred-cell\"><dt class=\"ds-cred-label\">Hours</dt><dd class=\"ds-cred-value\">Open 24 hours</dd><dd class=\"ds-cred-note\">Every day</dd></div><div class=\"ds-cred-cell\"><dt class=\"ds-cred-label\">Callout</dt><dd class=\"ds-cred-value\">He comes to the car</dd><dd class=\"ds-cred-note\">Driveway, car park, kerb</dd></div></dl>",
+      "css": ".ds-cred-band { display: grid; grid-template-columns: repeat(2, 1fr); margin: 0; border-top: 1px solid rgba(244, 242, 239, 0.12); background: rgba(13, 11, 9, 0.72); backdrop-filter: blur(2px); font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; } .ds-cred-cell { padding: 1.1rem 0 1.25rem; } .ds-cred-cell + .ds-cred-cell { padding-left: clamp(0.85rem, 2.2vw, 1.75rem); border-left: 1px solid rgba(244, 242, 239, 0.12); } .ds-cred-label { color: #9a9188; font-size: 0.7rem; font-weight: 650; letter-spacing: 0.16em; text-transform: uppercase; } .ds-cred-value { margin: 0.45rem 0 0; color: #f4f2ef; font-size: clamp(0.98rem, 1.7vw, 1.2rem); font-weight: 650; font-stretch: 112%; font-variant-numeric: tabular-nums; line-height: 1.15; } .ds-cred-note { margin: 0.3rem 0 0; color: #9a9188; font-size: 0.8rem; line-height: 1.35; }"
+    },
+    {
+      "name": "Service Row",
+      "kind": "custom",
+      "refersTo": "service-row",
+      "description": "One entry in the five-item service list. A fixed-max name column against a fluid description, baseline-aligned, closed with a bottom hairline. Rows, not equal-size cards.",
+      "html": "<article class=\"ds-service-item\"><h3 class=\"ds-service-title\">Diagnostics</h3><p class=\"ds-service-body\">A warning light read where the car is standing, so you know what it is before anything is booked.</p></article>",
+      "css": ".ds-service-item { display: grid; gap: 0.35rem clamp(1.5rem, 4vw, 3rem); grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); align-items: baseline; padding-block: 1.35rem; border-bottom: 1px solid rgba(244, 242, 239, 0.12); font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; } .ds-service-title { margin: 0; color: #f4f2ef; font-size: 1.05rem; font-weight: 650; font-stretch: 112%; line-height: 1.1; letter-spacing: 0.02em; text-transform: uppercase; } .ds-service-body { margin: 0; color: #c4bdb4; line-height: 1.55; } @media (max-width: 720px) { .ds-service-item { grid-template-columns: 1fr; gap: 0.4rem; } }"
+    },
+    {
+      "name": "Split Pair",
+      "kind": "card",
+      "description": "One fact with two halves (the van, and the workshop behind it), divided by a single vertical hairline with a hairline above. Two blocks, not two cards: nothing is enclosed.",
+      "html": "<dl class=\"ds-split-grid\"><div class=\"ds-split-cell\"><dt class=\"ds-split-label\">The van</dt><dd class=\"ds-split-body\">He comes to the car, wherever it has stopped.</dd></div><div class=\"ds-split-cell\"><dt class=\"ds-split-label\">The workshop</dt><dd class=\"ds-split-body\">A job that needs a ramp goes to Cameron Road.</dd></div></dl>",
+      "css": ".ds-split-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; margin: 0; border-top: 1px solid rgba(244, 242, 239, 0.12); font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; } .ds-split-cell { padding: 1.6rem 0 0; } .ds-split-cell + .ds-split-cell { padding-left: clamp(1.25rem, 3vw, 2.5rem); border-left: 1px solid rgba(244, 242, 239, 0.12); } .ds-split-label { color: #9a9188; font-size: 0.72rem; font-weight: 650; font-stretch: 110%; letter-spacing: 0.16em; text-transform: uppercase; } .ds-split-body { max-width: 42ch; margin: 0.85rem 0 0; color: #c4bdb4; line-height: 1.58; } @media (max-width: 720px) { .ds-split-grid { grid-template-columns: 1fr; } .ds-split-cell + .ds-split-cell { padding-left: 0; padding-top: 1.6rem; border-left: 0; border-top: 1px solid rgba(244, 242, 239, 0.12); } }"
+    },
+    {
+      "name": "Contact Field",
+      "kind": "input",
+      "description": "The page has no form fields; its equivalent is the four-cell contact grid, where a tracked label sits over a tabular, tappable value. Values that are phone numbers are links that turn copper on hover.",
+      "html": "<div class=\"ds-location-cell\"><dt class=\"ds-location-label\">Phone</dt><dd class=\"ds-location-dd\"><a class=\"ds-location-strong\" href=\"tel:+447751914650\">07751 914650</a><span class=\"ds-location-note\">Open 24 hours</span></dd></div>",
+      "css": ".ds-location-cell { font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; } .ds-location-label { color: #9a9188; font-size: 0.7rem; font-weight: 650; letter-spacing: 0.16em; text-transform: uppercase; } .ds-location-dd { margin: 0.6rem 0 0; color: #c4bdb4; line-height: 1.5; } .ds-location-strong { display: block; padding-block: 0.62rem; margin-block: -0.62rem; color: #f4f2ef; font-size: clamp(1.05rem, 1.8vw, 1.2rem); font-weight: 650; font-stretch: 110%; font-variant-numeric: tabular-nums; text-decoration: none; transition: color 150ms ease-out; } a.ds-location-strong:hover { color: #c1703a; } a.ds-location-strong:focus-visible { outline: 2px solid #c1703a; outline-offset: 3px; border-radius: 2px; } .ds-location-note { display: block; margin-top: 0.9rem; color: #9a9188; font-size: 0.85rem; }"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "refersTo": "text-link",
+      "description": "Inline copper link with a faded copper underline that goes solid on hover. Its padding-block gives it a 44px target without moving the type off the baseline.",
+      "html": "<a class=\"ds-text-link\" href=\"https://admotors.co.uk/\" rel=\"noopener\">admotors.co.uk</a>",
+      "css": ".ds-text-link { display: inline-block; padding-block: 0.78rem; margin-block: -0.78rem; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; color: #c1703a; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; text-decoration-color: rgba(193, 112, 58, 0.42); transition: text-decoration-color 150ms ease-out; } .ds-text-link:hover { text-decoration-color: #c1703a; } .ds-text-link:focus-visible { outline: 2px solid #c1703a; outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Sticky Topbar",
+      "kind": "nav",
+      "description": "The only navigation: a wordmark at left and the small copper call button at right, on a translucent graphite ground with a hairline foot. There is no menu.",
+      "html": "<header class=\"ds-topbar\"><div class=\"ds-topbar-inner\"><a class=\"ds-brand-mark\" href=\"#top\">AD Motors</a><a class=\"ds-btn ds-btn-primary ds-btn-small\" href=\"tel:+447751914650\">07751 914650</a></div></header>",
+      "css": ".ds-topbar { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid rgba(244, 242, 239, 0.12); background: rgba(16, 14, 12, 0.84); backdrop-filter: blur(10px); font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; } .ds-topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 64px; padding-inline: clamp(1.25rem, 4vw, 2.5rem); } .ds-brand-mark { display: inline-flex; align-items: center; min-height: 44px; color: #f4f2ef; font-weight: 650; font-size: 0.95rem; font-stretch: 118%; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; } .ds-btn { display: inline-flex; align-items: center; justify-content: center; border: 1px solid transparent; border-radius: 3px; font-family: inherit; font-weight: 650; font-stretch: 108%; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background-color 150ms ease-out, transform 150ms ease-out; } .ds-btn-primary { background: #c1703a; color: #190f05; box-shadow: 0 12px 30px -14px rgba(224, 139, 79, 0.55); } .ds-btn-primary:hover { background: #e08b4f; transform: translateY(-1px); } .ds-btn-small { padding: 0.68rem 1.05rem; font-size: 0.85rem; }"
+    },
+    {
+      "name": "Closing Number",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "The page's last element before the footer: the phone number at display size in copper, centred over the turned-down lamp asset, with the hours line under it.",
+      "html": "<div class=\"ds-booking\"><a class=\"ds-booking-phone\" href=\"tel:+447751914650\">07751 914650</a><p class=\"ds-booking-hours\">Open 24 hours</p></div>",
+      "css": ".ds-booking { position: relative; isolation: isolate; overflow: hidden; padding-block: clamp(5rem, 12vh, 8rem); text-align: center; background: #100e0c; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; } .ds-booking-phone { display: inline-block; color: #c1703a; font-size: clamp(2rem, 7vw, 3.6rem); font-weight: 650; font-stretch: 122%; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; text-decoration: none; transition: color 150ms ease-out; } .ds-booking-phone:hover { color: #e08b4f; } .ds-booking-phone:focus-visible { outline: 2px solid #c1703a; outline-offset: 3px; border-radius: 2px; } .ds-booking-hours { margin: 1rem 0 0; color: #9a9188; font-size: 0.92rem; letter-spacing: 0.06em; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Work Light on the Driveway",
+    "overview": "This is the seventh build in a family that runs one system and diverges only on the accent: Showroom champagne gold, CJ claret, M&A signal amber, A V Spode cobalt, Ronniegears Trent green, Hull On-Air Red, and here copper. The system was derived from the Mobile Mechanic (Hull) build with the accent swapped, so the graphite ground, the hairline rule as the only structural device, the wide-stretched Archivo caps against sentence-case body, and the flat depth are inherited canon rather than local invention. Copper is the choice that makes it this business: a mechanic's warm metal reads as the tooling, not as a hazard lamp.\n\nIt supersedes a fully built Midland Railway signal box world. That direction won the roll (seed key b2769508, index 4), was built at full fidelity, reviewed, and shipped; the client saw it live and asked for \"something more professional\", which is the standing canon exit taken in plain words. The world was replaced wholesale, not polished, and the earlier DESIGN.md was deleted with it. Nothing of the signal box survives in this system, and nothing of it should be reintroduced as a quirk. Convention is the commitment here, executed at full fidelity.\n\nThe one thing this build could not inherit is imagery. No photograph of this business exists and none may be invented, so the first viewport is lit rather than shot: a work light stood low and to the right on a night driveway, produced as an SVG asset in five named parts rather than assembled from CSS gradient ramps. That decision propagates through the whole page: no cards, no photographic panels, no tonal surfaces. The page is a dark ground, some hairlines, a lamp, and a phone number.",
+    "keyCharacteristics": [
+      "Graphite ground (#100e0c) with no lighter panel surfaces anywhere; the only lighter areas are lamp light in an image asset.",
+      "The 1px hairline at 12% white is the only structural device: sections, bands, split cells, service rows and the fact grid are all divided by it.",
+      "One rationed copper accent, carried by the call actions, the hero sub-line, the section rules, the text links, the closing number and every browser surface.",
+      "Archivo's width axis (100%-128%) does the display work; there is no second face.",
+      "Flat by default: exactly one shadow exists in the build, the copper glow under the primary button.",
+      "One orchestrated entrance on the first viewport, and it never fades text in."
+    ],
+    "rules": [
+      { "name": "The Rationed Copper Rule", "body": "Copper carries call actions, the hero sub-line, section rules, text links, the closing number, and the browser surfaces. It does not carry region or field labels: that was tried and removed in finish review. Labels are Steel Dim.", "section": "colors" },
+      { "name": "The One Ground Rule", "body": "There is exactly one background colour. --graphite-panel and --graphite-raised are declared but consumed nowhere, because the build has no panels; do not reach for them to make a card.", "section": "colors" },
+      { "name": "The Night Legibility Rule", "body": "Every text colour actually used clears WCAG AA on the graphite ground at its shipped size, because the reader is outdoors on a phone in bad light. A new tint must be tested at the size it will ship at, not at 16px.", "section": "colors" },
+      { "name": "The Width-Axis Rule", "body": "Display emphasis comes from Archivo's wdth axis, not a second typeface. The lockup steps down 128% to 110% to 100% as the viewport narrows (720px, 420px); nothing else on the page changes width at breakpoints.", "section": "typography" },
+      { "name": "The Tabular Number Rule", "body": "Every phone number and every published figure is tabular-nums. A number is a fact on this page, so it is set like one.", "section": "typography" },
+      { "name": "The No Second Face Rule", "body": "There is exactly one family in the build. No serif, no mono, no display face for the number.", "section": "typography" },
+      { "name": "The Hairline-Only Rule", "body": "Structure is drawn with 1px hairlines, never with boxes, fills, or radii on a container. When a hairline-divided grid collapses to one column, the divider moves from border-left to border-top; it never disappears.", "section": "layout" },
+      { "name": "The Thumb Reach Rule", "body": "The primary call action is reachable without scrolling at 390px, and every interactive target clears 44px, including text links, which carry padding-block: 0.78rem with matching negative margin so the target grows without moving the type.", "section": "layout" },
+      { "name": "The One Shadow Rule", "body": "The accent glow under the primary button is the entire shadow vocabulary. A new surface gets a hairline or nothing.", "section": "elevation" },
+      { "name": "The Produced Light Rule", "body": "No photograph of this business exists and none may be invented; no stock photography of other people's workshops is admissible. Where a photograph would go, light goes, and it is authored as an asset in the five named parts. A single radial gradient is a smudge, not a lamp.", "section": "components" },
+      { "name": "The Own-Aspect Rule", "body": "A new viewport aspect gets its own lamp asset, authored in that aspect. It never gets the wide asset nudged with background-position.", "section": "components" }
+    ],
+    "dos": [
+      "Do keep copper on the call actions, the hero sub-line, the section rules, the text links, the closing number and the browser surfaces, and nowhere else.",
+      "Do draw every division with the 1px hairline at 12% white, and move it from border-left to border-top when a grid collapses.",
+      "Do get display emphasis from Archivo's width axis (100%-128%) and case, never from a second typeface.",
+      "Do set every phone number and published figure in tabular-nums.",
+      "Do give any new interactive element a 44px target using padding-block with matching negative margin, so the target grows without moving the type.",
+      "Do author a new lamp aspect as its own asset in the five named parts (pool, contact, head, throw, house).",
+      "Do keep the primary call action reachable without scrolling at 390px."
+    ],
+    "donts": [
+      "Don't animate opacity from zero on anything. @keyframes rise settles from translateY(12px) at delays 0/50/100/140ms and deliberately does not touch opacity, because PRODUCT.md principle 5 forbids motion that delays the phone number. The sibling sites fade their content in; this one may not, and that difference is a rule.",
+      "Don't add a second animated moment. The lamp comes up (lampUp, 1400ms) and the lockup settles under it; nothing else on the page animates in.",
+      "Don't add a shadow. The accent glow under the primary button is the whole vocabulary.",
+      "Don't build a card, a panel, or a bordered container. --graphite-panel, --graphite-raised, --r-frame and --r-card are declared and deliberately unused.",
+      "Don't put copper on a region or field label; that was tried and removed in finish review.",
+      "Don't introduce a rating, a star row, a review, a testimonial, a price, a coverage radius or a credential. None is published, so no surface for one exists, and the structured data carries no aggregateRating and no review array.",
+      "Don't reintroduce anything from the superseded Midland Railway signal box world, and don't smuggle a quirk into canon. Canon is the client's recorded brand commitment.",
+      "Don't set live <text> in an SVG icon; draw letters as outlined paths with the counters cut, because a favicon gets no webfont."
+    ]
+  }
+}

@@ -35,8 +35,6 @@
 :root {
   /* Ground. Kept neutral-to-warm so the copper has somewhere to sit. */
   --graphite-ground: #100e0c;
-  --graphite-panel: #17130f;
-  --graphite-raised: #1e1913;
 
   /* Accent: copper, rationed */
   --copper: #c1703a;
@@ -53,11 +51,14 @@
   --hairline: rgba(244, 242, 239, 0.12);
   --hairline-strong: rgba(244, 242, 239, 0.22);
 
-  /* Shape */
+  /* The browser's own surfaces, themed off the same ground */
+  --scroll-thumb: #322820;
+  --scroll-thumb-hover: #48372a;
+
+  /* Shape. There are only two radii here, because there are only two shapes:
+     the focus ring and the button. Nothing on this page is a panel or a card. */
   --r-focus: 2px;
   --r-button: 3px;
-  --r-frame: 4px;
-  --r-card: 5px;
 
   /* Rhythm */
   --gutter: clamp(1.25rem, 4vw, 2.5rem);
@@ -126,7 +127,7 @@ body {
 * {
   caret-color: var(--copper);
   scrollbar-width: thin;
-  scrollbar-color: #322820 var(--graphite-ground);
+  scrollbar-color: var(--scroll-thumb) var(--graphite-ground);
 }
 
 ::-webkit-scrollbar {
@@ -139,12 +140,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #322820;
+  background: var(--scroll-thumb);
   border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #48372a;
+  background: var(--scroll-thumb-hover);
 }
 
 /* --- Type ---------------------------------------------------------------- */

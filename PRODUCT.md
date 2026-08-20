@@ -47,6 +47,8 @@ Undecided, and therefore absent from the page: email address, coverage radius, c
 
 The name carries "24/7" inside it, so availability is the identity, not a feature line. The trading name is written as the Google profile writes it.
 
+The client authorised the signal box lever paint code on 20 August 2026, asked directly and given the alternatives: the five services keep the real British frame colours (red stop, yellow distant, black points, blue facing point lock, green release) rather than falling back to the page's maroon and brass. It is the one place other hues appear, and it is a client decision, not a design assumption.
+
 ## Evidence on Hand
 
 None. No photographs of the owner, the van, the tools or any completed work. No customer reviews are published anywhere reachable: the Google profile shows a "Write a review" prompt and no rating, Yell has no listing for the mobile arm, and the reviews that exist online belong to AD Motors Limited's car sales side and are not this business's to quote.

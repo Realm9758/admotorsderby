@@ -287,7 +287,7 @@ svg {
 .hero {
   position: relative;
   isolation: isolate;
-  padding-block: clamp(2.75rem, 7vh, 5rem) clamp(3rem, 8vh, 5.5rem);
+  padding-block: clamp(1.9rem, 4.6vh, 3.1rem) clamp(2.25rem, 5vh, 3.5rem);
   overflow: hidden;
   border-bottom: 1px solid var(--hairline);
 }
@@ -329,7 +329,7 @@ svg {
   position: relative;
   display: block;
   width: 100%;
-  padding: clamp(1.1rem, 3.4vw, 2rem) clamp(1.4rem, 4.4vw, 3rem);
+  padding: clamp(1rem, 2.9vw, 1.65rem) clamp(1.4rem, 4.4vw, 3rem);
   border-radius: var(--r-board);
   background:
     linear-gradient(102deg, rgba(255, 255, 255, 0) 12%, rgba(255, 255, 255, 0.15) 27%, rgba(255, 255, 255, 0.03) 39%, rgba(255, 255, 255, 0) 54%),
@@ -355,21 +355,24 @@ svg {
   position: absolute;
   isolation: isolate;
   top: 50%;
-  width: 11px;
-  height: 11px;
+  width: 13px;
+  height: 13px;
   translate: 0 -50%;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #e6cd97, #8a6524 60%, #3d2c0f 100%);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(0, 0, 0, 0.35);
+  background: radial-gradient(circle at 33% 27%, #f6e6bb 0%, #d4ab61 32%, #97722c 66%, #4a3611 100%);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(0, 0, 0, 0.35),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.35);
 }
 
 .boardBolt::before {
   content: "";
   position: absolute;
-  inset: -5px -6px -4px -5px;
-  background: #3b2b2d;
+  inset: -3px -4px -2px -3px;
+  background: #4a3739;
   clip-path: polygon(18% 0%, 62% 6%, 100% 34%, 88% 78%, 44% 100%, 8% 72%, 0% 30%);
-  opacity: 0.55;
+  opacity: 0.34;
   z-index: -1;
 }
 
@@ -388,7 +391,7 @@ svg {
 .boardTop {
   display: block;
   margin: 0;
-  font-size: clamp(2.4rem, 9.4vw, 5.6rem);
+  font-size: clamp(2.4rem, 9.4vw, 4.9rem);
   font-weight: 700;
   line-height: 0.94;
   letter-spacing: clamp(0.02em, 0.5vw, 0.07em);
@@ -421,10 +424,24 @@ svg {
   z-index: 2;
 }
 
+.boardGroup {
+  position: relative;
+}
+
 @media (min-width: 720px) {
   .targetWrap {
-    margin-top: clamp(-2rem, -2.4vw, -1.2rem);
-    margin-right: clamp(1rem, 4vw, 3.5rem);
+    position: absolute;
+    right: clamp(1rem, 4vw, 3.5rem);
+    bottom: clamp(-74px, -5.2vw, -58px);
+    margin-top: 0;
+  }
+}
+
+/* Above this width the signal stands at the right of the hero, so the disc
+   hangs further in rather than colliding with the post. */
+@media (min-width: 940px) {
+  .targetWrap {
+    right: clamp(200px, 15vw, 232px);
   }
 }
 
@@ -456,15 +473,15 @@ svg {
 }
 
 .heroHead {
-  margin-top: clamp(2.25rem, 5vw, 3.25rem);
-  font-size: clamp(2rem, 5.6vw, 3.6rem);
+  margin-top: clamp(1.4rem, 3vw, 2.25rem);
+  font-size: clamp(2rem, 5.4vw, 3.4rem);
   letter-spacing: -0.025em;
   font-variation-settings: "wdth" 96;
   max-width: 16ch;
 }
 
 .heroBody {
-  margin-top: 1.1rem;
+  margin-top: 0.95rem;
   max-width: 46ch;
   color: var(--enamel-mid);
   font-size: clamp(1.02rem, 0.98rem + 0.3vw, 1.19rem);
@@ -476,7 +493,7 @@ svg {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.9rem 1.1rem;
-  margin-top: clamp(1.75rem, 4vw, 2.5rem);
+  margin-top: clamp(1.4rem, 3vw, 2rem);
 }
 
 /* ----------------------------------------------------------------------
@@ -561,7 +578,7 @@ svg {
   border-radius: var(--r-plate);
   background:
     linear-gradient(104deg, rgba(255, 255, 255, 0) 24%, rgba(255, 255, 255, 0.14) 35%, rgba(255, 255, 255, 0) 47%),
-    repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0 1px, rgba(255, 255, 255, 0.035) 1px 3px),
+    repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.028) 0 1px, rgba(255, 255, 255, 0.018) 1px 3px),
     linear-gradient(180deg, #dcbd82 0%, #c19a57 52%, #a58240 100%);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.55) inset,
@@ -599,6 +616,17 @@ svg {
 
 .leverClose .leverPlate::after {
   right: clamp(12px, 1.4vw, 20px);
+}
+
+.leverMain {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.leverAside {
+  display: none;
 }
 
 .leverDesc {
@@ -647,6 +675,10 @@ svg {
 
 .leverClose .leverPlate {
   flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 3vw, 2.5rem);
   min-height: clamp(104px, 14vw, 160px);
   padding: clamp(0.9rem, 2vw, 1.4rem) clamp(1.2rem, 3vw, 2.2rem) clamp(1rem, 2.2vw, 1.5rem) clamp(1.6rem, 3.4vw, 2.6rem);
 }
@@ -660,6 +692,21 @@ svg {
   font-size: clamp(1.85rem, 7.4vw, 4.6rem);
   letter-spacing: -0.025em;
   line-height: 1.02;
+}
+
+@media (min-width: 700px) {
+  .leverClose .leverAside {
+    display: grid;
+    gap: 0.3rem;
+    flex: 0 0 auto;
+    text-align: right;
+    font-size: clamp(0.7rem, 1vw, 0.82rem);
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    line-height: 1.35;
+    color: #1c1408;
+  }
 }
 
 .leverGhost {
@@ -738,13 +785,13 @@ svg {
     opacity: 1;
   }
   to {
-    opacity: 0.12;
+    opacity: 0;
   }
 }
 
 @keyframes glassIn {
   from {
-    opacity: 0.12;
+    opacity: 0;
   }
   to {
     opacity: 1;
@@ -774,7 +821,7 @@ svg {
 .blockShelf {
   display: grid;
   gap: 0;
-  margin-top: clamp(2.5rem, 6vw, 3.75rem);
+  margin-top: clamp(1.6rem, 3.4vw, 2.4rem);
   border-top: 1px solid var(--hairline);
 }
 
@@ -785,14 +832,14 @@ svg {
 }
 
 .blockCell {
-  padding: 1.05rem 0 1.1rem;
+  padding: 0.95rem 0 1rem;
   border-bottom: 1px solid var(--hairline);
   min-width: 0;
 }
 
 @media (min-width: 720px) {
   .blockCell {
-    padding: 1.15rem clamp(1rem, 2.4vw, 1.9rem);
+    padding: 1rem clamp(1rem, 2.4vw, 1.9rem);
     border-bottom: none;
     border-left: 1px solid var(--hairline);
   }
@@ -1234,14 +1281,6 @@ svg {
   z-index: 1;
 }
 
-.closeFoot {
-  position: relative;
-  z-index: 1;
-  margin-top: clamp(1.5rem, 3vw, 2rem);
-  font-size: 0.9rem;
-  color: rgba(244, 241, 234, 0.78);
-}
-
 /* ----------------------------------------------------------------------
    Footer
    ---------------------------------------------------------------------- */
@@ -1316,8 +1355,27 @@ svg {
   width: 100%;
 }
 
+.callBar .leverStock {
+  width: 23px;
+  margin-right: -4px;
+}
+
 .callBar .leverPlate {
   flex: 1;
+  min-height: 54px;
+  padding: 0.45rem 1rem 0.5rem 1.15rem;
+}
+
+.callBar .leverNumber {
+  font-size: 1.14rem;
+}
+
+.callBar .leverPlate::before {
+  left: 6px;
+}
+
+.callBar .leverPlate::after {
+  right: 7px;
 }
 
 @media (min-width: 720px) {

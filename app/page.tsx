@@ -55,10 +55,12 @@ function Lever({
   variant,
   desc,
   label,
+  aside,
 }: {
   variant?: "close";
   desc?: string;
   label: string;
+  aside?: readonly string[];
 }) {
   return (
     <a className={variant === "close" ? "lever leverClose" : "lever"} href={contact.phoneHref}>
@@ -66,8 +68,17 @@ function Lever({
         <LeverStock />
       </span>
       <span className="leverPlate">
-        {desc ? <span className="leverDesc">{desc}</span> : null}
-        <span className="leverNumber">{label}</span>
+        <span className="leverMain">
+          {desc ? <span className="leverDesc">{desc}</span> : null}
+          <span className="leverNumber">{label}</span>
+        </span>
+        {aside ? (
+          <span className="leverAside">
+            {aside.map((line) => (
+              <span key={line}>{line}</span>
+            ))}
+          </span>
+        ) : null}
       </span>
     </a>
   );
@@ -120,6 +131,9 @@ function Signal() {
         <g className="signalArm">
           {/* spectacle casting, rigid with the arm, carrying both glasses */}
           <line x1="84" y1="145" x2="57" y2="138" stroke="#20242b" strokeWidth="23" strokeLinecap="round" />
+          {/* the glass bodies stay dark; only the one standing over the lamp lights */}
+          <circle cx="84" cy="145" r="7.5" fill="#3a1512" />
+          <circle cx="57" cy="138" r="7.5" fill="#123024" />
           <circle className="signalGlassRed" cx="84" cy="145" r="7.5" fill="#ff4231" filter="url(#lampGlow)" />
           <circle className="signalGlassGreen" cx="57" cy="138" r="7.5" fill="#4fdb92" filter="url(#lampGlow)" />
           <rect x="6" y="99" width="72" height="18" rx="3" fill="url(#armPaint)" />
@@ -229,6 +243,7 @@ export default function Page() {
           <div className="heroLight" aria-hidden="true" />
           <div className="grain" aria-hidden="true" />
           <div className="wrap">
+            <div className="boardGroup">
             <div className="board enamel">
               <span className="boardBolt boardBoltLeft" aria-hidden="true" />
               <span className="boardBolt boardBoltRight" aria-hidden="true" />
@@ -244,6 +259,7 @@ export default function Page() {
               <span className="target enamel" aria-hidden="true">
                 {identity.tab}
               </span>
+            </div>
             </div>
 
             <div className="heroGrid">
@@ -359,8 +375,12 @@ export default function Page() {
           <div className="grain" aria-hidden="true" />
           <div className="wrap">
             <h2 className="closeHead">{close.heading}</h2>
-            <Lever variant="close" desc={close.plateDesc} label={contact.phoneDisplay} />
-            <p className="closeFoot">{close.foot}</p>
+            <Lever
+              variant="close"
+              desc={close.plateDesc}
+              label={contact.phoneDisplay}
+              aside={[hours.summary, contact.addressLine]}
+            />
           </div>
         </section>
       </main>

@@ -26,7 +26,9 @@
 
   The lever colours in `services` are the real British signal box frame
   convention (red stop, yellow distant, black points, blue facing point lock,
-  green release). They are visual grammar, not a claim about the business.
+  green release). They are visual grammar, not a claim about the business, and
+  the client authorised them explicitly on 20 August 2026 when asked whether to
+  keep the five colours or fall back to the page's maroon and brass.
 */
 
 export const identity = {
@@ -71,13 +73,11 @@ export const hours = {
 } as const;
 
 export const hero = {
-  eyebrow: "Mobile mechanic · Derby",
   /* the promise, in the world's own words: a blocked line clears when he answers */
   headline: "The line is never closed.",
   standfirst:
     "A mobile mechanic in Derby, listed open 24 hours, with a real workshop behind him. He comes to the car, wherever it has stopped.",
   callLabel: "Call",
-  callSub: "Any hour, any day",
   servicesLabel: "What he covers",
   aspectDanger: "Line blocked",
   aspectClear: "Line clear",

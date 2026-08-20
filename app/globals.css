@@ -1064,15 +1064,23 @@ svg {
 }
 
 .pairLabel {
-  font-size: 0.68rem;
+  display: inline-flex;
+  align-items: center;
+  height: 27px;
+  padding: 0 0.72rem;
+  border-radius: var(--r-plate);
+  background:
+    linear-gradient(104deg, rgba(255, 255, 255, 0) 24%, rgba(255, 255, 255, 0.16) 36%, rgba(255, 255, 255, 0) 50%),
+    linear-gradient(180deg, #dcbd82 0%, #c19a57 52%, #a58240 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 4px 10px -6px rgba(0, 0, 0, 0.8);
+  font-size: 0.66rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.17em;
   text-transform: uppercase;
-  color: var(--brass-light);
-}
-
-.pairCellEnamel .pairLabel {
-  color: rgba(244, 241, 234, 0.82);
+  color: #1c1408;
 }
 
 .pairBody {
@@ -1148,23 +1156,7 @@ svg {
 }
 
 @media (min-width: 860px) {
-  .sectionLit {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
-
-.sectionLight {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background-image: url("/boxlight-close.svg");
-  background-size: cover;
-  background-position: center 62%;
-  opacity: 0.85;
-}
-
-.clockGrid {
+  .clockGrid {
     grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
   }
 }

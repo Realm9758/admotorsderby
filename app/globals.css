@@ -773,11 +773,11 @@ svg {
 }
 
 .signalGlassRed {
-  animation: glassOut 420ms 1.5s both;
+  animation: glassOut 360ms 1.86s both;
 }
 
 .signalGlassGreen {
-  animation: glassIn 420ms 1.5s both;
+  animation: glassIn 360ms 1.86s both;
 }
 
 @keyframes glassOut {
@@ -811,7 +811,7 @@ svg {
   display: block;
   margin-top: 0.2rem;
   color: var(--lamp-green-bright);
-  animation: glassIn 420ms 1.5s both;
+  animation: glassIn 360ms 1.86s both;
 }
 
 /* ----------------------------------------------------------------------
